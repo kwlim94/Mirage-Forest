@@ -15,6 +15,9 @@ public class CharacterControlScript : MonoBehaviour
 	float characterRotationOffset;
 	bool isGround;
 
+	float veticalAxis;
+	float horizontalAxis;
+
 	void Start ()
 	{
 		anim = character.GetComponent<Animator>();
@@ -32,30 +35,16 @@ public class CharacterControlScript : MonoBehaviour
 
 	void Movement ()
 	{
-		if(Input.GetKey(KeyCode.W) && anim.GetBool("Walk"))
-		{
-			character.eulerAngles = new Vector3(0.0f, characterRotationOffset + 0.0f, 0.0f);
-			transform.Translate(Vector3.forward * walkingSpeed * Time.deltaTime);
-		}
-		else if(Input.GetKey(KeyCode.S) && anim.GetBool("Walk"))
-		{
-			character.eulerAngles = new Vector3(0.0f, characterRotationOffset + 180.0f, 0.0f);
-			transform.Translate(Vector3.back * walkingSpeed * Time.deltaTime);
-		}
-		if(Input.GetKey(KeyCode.A) && anim.GetBool("Walk"))
-		{
-			character.eulerAngles = new Vector3(0.0f, characterRotationOffset - 90.0f, 0.0f);
-			transform.Translate(Vector3.left * walkingSpeed * Time.deltaTime);
-		}
-		else if(Input.GetKey(KeyCode.D) && anim.GetBool("Walk"))
-		{
-			character.eulerAngles = new Vector3(0.0f, characterRotationOffset + 90.0f, 0.0f);
-			transform.Translate(Vector3.right * walkingSpeed * Time.deltaTime);
-		}
+		horizontalAxis = Input.GetAxis("Horizontal");
+		veticalAxis = Input.GetAxis("Vertical");
 
 		if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
 		{
 			anim.SetBool("Walk", true);
+			float rotationAngle = Mathf.Atan2(horizontalAxis ,veticalAxis) - Mathf.Atan2(0.0f, 1.0f);
+
+			character.eulerAngles = new Vector3(0.0f, rotationAngle * Mathf.Rad2Deg, 0.0f);
+			transform.Translate(new Vector3(horizontalAxis, 0.0f, veticalAxis) * walkingSpeed * Time.deltaTime);
 		}
 		else
 		{
