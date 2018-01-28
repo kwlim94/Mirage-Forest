@@ -1102,11 +1102,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000012944994536, guid: 681caea7d7db32e468aa5bc7e60da2f0,
     type: 2}
   m_PrefabInternal: {fileID: 130215457}
---- !u!4 &133439028 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4139753173764834, guid: dac904cd4a35a924c8f5c8b9c5808eb0,
-    type: 2}
-  m_PrefabInternal: {fileID: 678442272}
 --- !u!1001 &137502756
 Prefab:
   m_ObjectHideFlags: 0
@@ -5049,16 +5044,6 @@ Prefab:
     - target: {fileID: 4306850777825556, guid: dac904cd4a35a924c8f5c8b9c5808eb0, type: 2}
       propertyPath: m_RootOrder
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114383653268109966, guid: dac904cd4a35a924c8f5c8b9c5808eb0,
-        type: 2}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 133439028}
-    - target: {fileID: 114383653268109966, guid: dac904cd4a35a924c8f5c8b9c5808eb0,
-        type: 2}
-      propertyPath: cameraRotationSpeed
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dac904cd4a35a924c8f5c8b9c5808eb0, type: 2}
