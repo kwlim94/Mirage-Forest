@@ -10,9 +10,14 @@ public class NarrativeControlScript : MonoBehaviour
 	int pageNumber;
 	public Image speechBubble;
 
-	void Start ()
+	public static NarrativeControlScript Instance {get; set;}
+
+	void Awake()
 	{
-		LoadConversation (10011);
+		if(Instance!= null && Instance != this)
+			Destroy(gameObject);
+		else
+			Instance = this;
 	}
 
 	void Update ()
@@ -42,6 +47,7 @@ public class NarrativeControlScript : MonoBehaviour
 		
 		FindCharacters ();
 		characterList[0].GetComponent<CharacterControlScript>().enabled = false;
+		characterList[0].transform.GetChild(1).GetComponent<Animator>().SetBool("Walk", false);
 
 		for (int i = 0; i < tempList.Count; i++)
 		{
