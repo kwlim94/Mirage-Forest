@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractionScript : MonoBehaviour
 {
-	GameObject player;
+	public GameObject player;
 	public bool isInteractable;
 
 	void Start ()
@@ -24,7 +24,7 @@ public class InteractionScript : MonoBehaviour
 
 	void CheckInRange ()
 	{
-		if(Vector3.Distance(player.transform.position, this.transform.position) <= 1.0f)
+		if(Vector3.Distance(player.transform.position, this.transform.position) <= 2.0f)
 		{
 			isInteractable = true;
 		}
@@ -37,6 +37,7 @@ public class InteractionScript : MonoBehaviour
 	public virtual void Interact ()
 	{
 		Debug.Log ("Interact on the base class");
+		Destroy(gameObject);
 	}
 
 }

@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Characters
+  - interobject
   layers:
   - Default
   - TransparentFX

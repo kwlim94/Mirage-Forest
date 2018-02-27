@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+
 
 public class ItemDatabaseScript : MonoBehaviour {
 
 	[System.Serializable]
-	public class ItemsData
+	public class Item
 	{
 		public string name;
-		public Image itemImage;
+		public Sprite itemImage;
 		public int itemID;
 	}
 
@@ -23,5 +26,15 @@ public class ItemDatabaseScript : MonoBehaviour {
 		
 	}
 
-	public List<ItemsData> ItemList;
+	public static ItemDatabaseScript Instance {get; set;}
+
+	void Awake()
+	{
+		if(Instance!= null && Instance != this)
+			Destroy(gameObject);
+		else
+			Instance = this;
+	}
+
+	public List<Item> ItemList;
 }

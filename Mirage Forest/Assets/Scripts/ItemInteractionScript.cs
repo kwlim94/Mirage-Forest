@@ -5,23 +5,20 @@ using UnityEngine.UI;
 
 public class ItemInteractionScript : InteractionScript
 {
-	[System.Serializable]
-	public class ItemsData
-	{
-		public string name;
-		public Image itemImage;
-		public int itemID;
-	}
 
-	void Start()
-	{
-		ItemList = new List<ItemsData>();
-	}
+	public int idNumber;
 
 	public override void Interact ()
 	{
 		base.Interact ();
+
+		player.GetComponent<InventoryScript>().itemInHand[idNumber - 1] = true;
+
+		Image mySprite = GetComponent<Image>();
+
+		mySprite = player.GetComponent<InventoryScript>().ItemSprite[idNumber - 1].GetComponent<Image>();
+
+		mySprite.sprite = player.GetComponent<InventoryScript>().ItemList[idNumber - 1].itemImage;
 	}
 
-	public List<ItemsData> ItemList;
 }
