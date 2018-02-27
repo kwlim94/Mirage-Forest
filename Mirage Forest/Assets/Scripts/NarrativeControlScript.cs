@@ -32,10 +32,10 @@ public class NarrativeControlScript : MonoBehaviour
 	{
 		if(speechBubble.gameObject.activeSelf)
 		{
-//			if(Input.GetMouseButtonDown(0))
-//			{
-//				NextPage ();
-//			}
+			if(Input.GetMouseButtonDown(0))
+			{
+				NextPage ();
+			}
 				
 			if(timeElasped > tempDialogueList[pageNumber].duration)
 			{
