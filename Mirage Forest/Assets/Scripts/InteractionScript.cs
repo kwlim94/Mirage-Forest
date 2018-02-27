@@ -16,6 +16,10 @@ public class InteractionScript : MonoBehaviour
 	void Update ()
 	{
 		CheckInRange ();
+		if(isInteractable)
+		{
+			Interact ();
+		}
 	}
 
 	void CheckInRange ()
@@ -32,7 +36,7 @@ public class InteractionScript : MonoBehaviour
 
 	public virtual void Interact ()
 	{
-		
+		Debug.Log ("Interact on the base class");
 	}
 
 }
