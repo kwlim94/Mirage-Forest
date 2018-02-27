@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TriggerType
+{
+	STORY = 0,
+
+	TUTORIAL = 99,
+}
+
 public class EventTriggerScript : MonoBehaviour
 {
 	public int idNumber;
+	public TriggerType triggerType;
 
 	void Start ()
 	{
@@ -15,8 +23,11 @@ public class EventTriggerScript : MonoBehaviour
 	{
 		if(col.tag == "Player")
 		{
-			NarrativeControlScript.Instance.LoadConversation (idNumber);
-			gameObject.SetActive(false);
+			if(triggerType == TriggerType.STORY)
+			{
+				NarrativeControlScript.Instance.LoadConversation (idNumber);
+				gameObject.SetActive(false);
+			}
 		}
 	}
 }

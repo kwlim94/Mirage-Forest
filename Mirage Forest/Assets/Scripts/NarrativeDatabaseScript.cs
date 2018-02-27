@@ -8,6 +8,9 @@ public class Dialogue
 	public string name;
 	public int chracterID;
 	public string speech;
+	public float duration;
+	public float wantedAngle;
+	public CharacterAnimation characterAnimation;
 }
 
 [System.Serializable]

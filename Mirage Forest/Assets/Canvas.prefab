@@ -79,7 +79,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1790805481496812
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,19 +141,40 @@ MonoBehaviour:
     DialogueList:
     - name: Kaizen
       chracterID: 1
+      speech: '...'
+      duration: 6
+      wantedAngle: 180
+      characterAnimation: 3
+    - name: Kaizen
+      chracterID: 1
       speech: Where am I?
+      duration: 2
+      wantedAngle: 180
+      characterAnimation: 0
     - name: Kaizen
       chracterID: 1
       speech: "I remember wanting to look for something\u2026 no, someone\u2026"
-    - name: Kaizen
-      chracterID: 1
-      speech: Who is that someone ?
+      duration: 3
+      wantedAngle: 180
+      characterAnimation: 0
     - name: 
       chracterID: 0
+      speech: Who is that someone ?
+      duration: 2
+      wantedAngle: 180
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
       speech: 'I can vaguely remember that someone is a girl '
+      duration: 3
+      wantedAngle: 180
+      characterAnimation: 0
     - name: Kaizen
       chracterID: 1
       speech: "I\u2019ll just start looking around"
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
 --- !u!114 &114307881965376202
 MonoBehaviour:
   m_ObjectHideFlags: 1
