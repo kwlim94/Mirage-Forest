@@ -100,8 +100,6 @@ public class CharacterControlScript : MonoBehaviour
 
 	void CameraRotation ()
 	{
-		//if(Input.GetMouseButton(0))
-		{
 			transform.eulerAngles = new Vector3(transform.eulerAngles.x,
 												transform.eulerAngles.y + Input.GetAxis("Mouse X") * cameraRotationSpeed * Time.deltaTime,
 												transform.eulerAngles.z);
@@ -109,7 +107,6 @@ public class CharacterControlScript : MonoBehaviour
 			model.transform.localEulerAngles = new Vector3(model.transform.localEulerAngles.x,
 															model.transform.localEulerAngles.y - Input.GetAxis("Mouse X") * cameraRotationSpeed * Time.deltaTime,
 															model.transform.localEulerAngles.z);
-		}
 	}
 
 	void ResetCamera ()
@@ -134,6 +131,31 @@ public class CharacterControlScript : MonoBehaviour
 		if(model.transform.localRotation.y <= 0.0f)
 			isLerping = false;
 	}
+
+	public void RotateCamera (float wantedAngle)
+	{
+		float currentAngle;
+		if(model.transform.localEulerAngles.y < 0.0f)
+		{
+			currentAngle = 180.0f + (180.0f - model.transform.localEulerAngles.y);
+		}
+		else
+		{
+			currentAngle = model.transform.localEulerAngles.y;
+		}
+
+		float angleToTurn = wantedAngle - currentAngle;
+
+		transform.eulerAngles = new Vector3(transform.eulerAngles.x,
+			transform.eulerAngles.y - angleToTurn,
+			transform.eulerAngles.z);
+
+		model.transform.localEulerAngles = new Vector3(model.transform.localEulerAngles.x,
+			model.transform.localEulerAngles.y + angleToTurn,
+			model.transform.localEulerAngles.z);
+		
+	}
+		
 
 	void OnCollisionEnter(Collision col)
 	{

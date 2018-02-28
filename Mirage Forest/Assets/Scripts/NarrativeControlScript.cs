@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class NarrativeControlScript : MonoBehaviour
 {
 	List <GameObject> characterList;
-	int currentId;
+	//int currentId;
 	int pageNumber;
+	int currentCharacterIndex;
 	public Image speechBubble;
+	List<Dialogue> tempDialogueList;
+	float timeElasped;
 
 	public static NarrativeControlScript Instance {get; set;}
 
@@ -20,6 +23,11 @@ public class NarrativeControlScript : MonoBehaviour
 			Instance = this;
 	}
 
+	void Start ()
+	{
+		tempDialogueList = new List<Dialogue>();
+	}
+
 	void Update ()
 	{
 		if(speechBubble.gameObject.activeSelf)
@@ -28,6 +36,13 @@ public class NarrativeControlScript : MonoBehaviour
 			{
 				NextPage ();
 			}
+				
+			if(timeElasped > tempDialogueList[pageNumber].duration)
+			{
+				timeElasped = 0;
+				NextPage ();
+			}
+			timeElasped += Time.deltaTime;
 		}
 	}
 
@@ -53,23 +68,37 @@ public class NarrativeControlScript : MonoBehaviour
 		{
 			if(tempList[i].IdNumber == IdNumber)
 			{
-				currentId = i;
+				tempDialogueList = tempList[i].DialogueList;
 				break;
 			}
 		}
 
 		pageNumber = -1;
+		timeElasped = 0;
 		NextPage ();
 	}
 
 	public void NextPage ()
 	{
-		if (pageNumber < NarrativeDatabaseScript.Instance.NarrativeDatabaseList[currentId].DialogueList.Count - 1)
+		if (pageNumber < tempDialogueList.Count - 1)
 		{
 			pageNumber ++;
 			speechBubble.transform.GetChild(0).GetComponent<Text>().text
-			= NarrativeDatabaseScript.Instance.NarrativeDatabaseList[currentId].DialogueList[pageNumber].speech;
+			= tempDialogueList[pageNumber].speech;
 			speechBubble.transform.position = Camera.main.WorldToScreenPoint(characterList[0].transform.GetChild(0).position);
+
+			for(int i = 0; i < characterList.Count; i++)
+			{
+				if(characterList[i].GetComponent<CharacterIDTagScript>().ID == tempDialogueList[pageNumber].chracterID)
+				{
+					currentCharacterIndex = i;
+					break;
+				}
+			}
+
+			characterList[currentCharacterIndex].GetComponent<CharacterControlScript> ().RotateCamera(tempDialogueList[pageNumber].wantedAngle);
+			characterList[currentCharacterIndex].
+			GetComponent<CharacterAnimationScript> ().ChangeAnimation(tempDialogueList[pageNumber].characterAnimation);
 		}
 		else
 		{

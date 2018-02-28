@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idNumber: 100011
+  triggerType: 0
 --- !u!23 &1176040311
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -498,10 +499,6 @@ Prefab:
     - target: {fileID: 224462582612766022, guid: 0465215e843066640a4282e9cbb9d7f5,
         type: 2}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1661604997921864, guid: 0465215e843066640a4282e9cbb9d7f5, type: 2}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
