@@ -5,9 +5,12 @@ using UnityEngine;
 //! This script is used for Movement and Camera controls for the player
 public class CharacterControlScript : MonoBehaviour
 {
+	public GameObject interactImage;
+
 	//HT Animator and RigidBody for the character model
 	Animator anim;
 	Rigidbody rb;
+	CapsuleCollider characterCollision;
 
 	//! Character Related variables
 	public Transform model; //HT The ganmeObject that refers to the character model itself and not the Character(with camera) as a whole 
@@ -24,14 +27,19 @@ public class CharacterControlScript : MonoBehaviour
 	float lerpDamping = 500.0f; //HT This is the rate of the camera rotation for camera reset
 	float desiredRotationAngle; //HT Not Used at the moment
 	public bool isLerping; //HT This used to check if the camera is in the middle of reseting
+	bool isCrouch;
 
 	void Start ()
 	{
+		interactImage = GameObject.Find("Interact");
+		interactImage.SetActive(false);
 		Cursor.visible = false; //HT Temporary put it here first
 		anim = model.GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
+		characterCollision = GetComponent<CapsuleCollider>();
 		isGround = true;
 		isLerping = false;
+		isCrouch = false;
 	}
 
 	void Update ()
@@ -55,6 +63,21 @@ public class CharacterControlScript : MonoBehaviour
 	{
 		horizontalAxis = Input.GetAxis("Horizontal");
 		veticalAxis = Input.GetAxis("Vertical");
+
+		if(Input.GetKey(KeyCode.LeftShift) && isGround)
+		{
+			characterCollision.height = 1;
+			characterCollision.center = new Vector3(0.0f, 0.5f, 0.0f);
+			anim.SetBool("Crouch", true);
+			isCrouch = true;
+		}
+		if(Input.GetKeyUp(KeyCode.LeftShift))
+		{
+			characterCollision.height = 2;
+			characterCollision.center = new Vector3(0.0f, 1.0f, 0.0f);
+			anim.SetBool("Crouch", false);
+			isCrouch = false;
+		}
 
 		if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
 		{
@@ -84,7 +107,7 @@ public class CharacterControlScript : MonoBehaviour
 
 
 
-		if(Input.GetKeyDown(KeyCode.Space) && isGround)
+		if(Input.GetKeyDown(KeyCode.Space) && isGround && !isCrouch)
 		{
 			//HT This is hard overide
 			anim.Play("Jump", 0, 0);
@@ -162,6 +185,25 @@ public class CharacterControlScript : MonoBehaviour
 		if(col.transform.tag == "Ground")
 		{
 			isGround = true;
+		}
+	}
+
+	void OnTriggerEnter(Collider col)
+	{
+		print("Collision!");
+		if(col.transform.tag == "Interactable")
+		{
+			col.GetComponent<InteractionScript>().isInteractable = true;
+			interactImage.SetActive(true);
+		}
+	}
+
+	void OnTriggerExit(Collider col)
+	{
+		if(col.transform.tag == "Interactable")
+		{
+			col.GetComponent<InteractionScript>().isInteractable = false;
+			interactImage.SetActive(false);
 		}
 	}
 }

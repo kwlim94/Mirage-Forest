@@ -6,6 +6,7 @@ public class InteractionScript : MonoBehaviour
 {
 	public GameObject player;
 	public bool isInteractable;
+	public int idNumber;
 
 	void Start ()
 	{
@@ -15,28 +16,16 @@ public class InteractionScript : MonoBehaviour
 
 	void Update ()
 	{
-		CheckInRange ();
-		if(isInteractable)
+		if(isInteractable && Input.GetKeyDown(KeyCode.E))
 		{
 			Interact ();
-		}
-	}
-
-	void CheckInRange ()
-	{
-		if(Vector3.Distance(player.transform.position, this.transform.position) <= 2.0f)
-		{
-			isInteractable = true;
-		}
-		else
-		{
-			isInteractable = false;
 		}
 	}
 
 	public virtual void Interact ()
 	{
 		Debug.Log ("Interact on the base class");
+		player.GetComponent<CharacterControlScript>().interactImage.SetActive(false);
 		Destroy(gameObject);
 	}
 

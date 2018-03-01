@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum ItemType
+{
+	Usable= 0,
+	Collectable,
+}
 
-
-public class ItemDatabaseScript : MonoBehaviour {
+public class ItemDatabaseScript : MonoBehaviour
+{
 
 	[System.Serializable]
 	public class Item
@@ -13,17 +18,7 @@ public class ItemDatabaseScript : MonoBehaviour {
 		public string name;
 		public Sprite itemImage;
 		public int itemID;
-	}
-
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		public ItemType itemType;
 	}
 
 	public static ItemDatabaseScript Instance {get; set;}

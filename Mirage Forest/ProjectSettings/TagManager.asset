@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Ground
   - Characters
-  - interobject
+  - Inventory
+  - Interactable
   layers:
   - Default
   - TransparentFX
