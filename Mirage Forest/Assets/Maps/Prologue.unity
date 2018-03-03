@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.22501501, g: 0.2005552, b: 0.14766848, a: 1}
+  m_IndirectSpecularColor: {r: 0.22501564, g: 0.2005553, b: 0.14766875, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4754,7 +4754,7 @@ Prefab:
     - target: {fileID: 224462582612766022, guid: 0465215e843066640a4282e9cbb9d7f5,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224462582612766022, guid: 0465215e843066640a4282e9cbb9d7f5,
         type: 2}
@@ -4804,6 +4804,10 @@ Prefab:
     - target: {fileID: 224462582612766022, guid: 0465215e843066640a4282e9cbb9d7f5,
         type: 2}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409684517120698, guid: 0465215e843066640a4282e9cbb9d7f5, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7417,14 +7421,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 806903476}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -107.649254, y: -13.299323, z: 61.370796}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -18.112473, y: 28.863205, z: 25.76416}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 772187273}
   - {fileID: 1681212714}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1729433662}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &807431278 stripped
 Transform:
@@ -16482,6 +16486,7 @@ Transform:
   - {fileID: 608676519}
   - {fileID: 1292968330}
   - {fileID: 1921882310}
+  - {fileID: 806903477}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17156,7 +17161,7 @@ GameObject:
   - component: {fileID: 1828930120}
   - component: {fileID: 1828930119}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Prolouge Event Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
