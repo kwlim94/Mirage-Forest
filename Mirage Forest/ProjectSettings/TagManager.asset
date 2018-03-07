@@ -8,7 +8,6 @@ TagManager:
   - Characters
   - Inventory
   - Interactable
-  - InterObj
   layers:
   - Default
   - TransparentFX
