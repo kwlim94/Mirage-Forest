@@ -12,6 +12,7 @@ public class NarrativeControlScript : MonoBehaviour
 	public Image speechBubble;
 	List<Dialogue> tempDialogueList;
 	float timeElasped;
+	GameObject toDeactivate;
 
 	public static NarrativeControlScript Instance {get; set;}
 
@@ -56,6 +57,7 @@ public class NarrativeControlScript : MonoBehaviour
 
 	public void LoadConversation (int IdNumber)
 	{
+		toDeactivate = null;
 		speechBubble.gameObject.SetActive(true);
 
 		List<NarrativeDatabase> tempList = NarrativeDatabaseScript.Instance.NarrativeDatabaseList;
@@ -78,6 +80,12 @@ public class NarrativeControlScript : MonoBehaviour
 		NextPage ();
 	}
 
+	public void LoadConversation (int IdNumber, GameObject toDeactivate)
+	{
+		LoadConversation (IdNumber);
+		this.toDeactivate = toDeactivate;
+	}
+
 	public void NextPage ()
 	{
 		if (pageNumber < tempDialogueList.Count - 1)
@@ -85,7 +93,6 @@ public class NarrativeControlScript : MonoBehaviour
 			pageNumber ++;
 			speechBubble.transform.GetChild(0).GetComponent<Text>().text
 			= tempDialogueList[pageNumber].speech;
-			speechBubble.transform.position = Camera.main.WorldToScreenPoint(characterList[0].transform.GetChild(0).position);
 
 			for(int i = 0; i < characterList.Count; i++)
 			{
@@ -96,7 +103,8 @@ public class NarrativeControlScript : MonoBehaviour
 				}
 			}
 
-			characterList[currentCharacterIndex].GetComponent<CharacterControlScript> ().RotateCamera(tempDialogueList[pageNumber].wantedAngle);
+			speechBubble.transform.position = Camera.main.WorldToScreenPoint(characterList[currentCharacterIndex].transform.GetChild(0).position);
+			characterList[0].GetComponent<CharacterControlScript> ().RotateCamera(tempDialogueList[pageNumber].wantedAngle);
 			characterList[currentCharacterIndex].
 			GetComponent<CharacterAnimationScript> ().ChangeAnimation(tempDialogueList[pageNumber].characterAnimation);
 		}
@@ -104,6 +112,10 @@ public class NarrativeControlScript : MonoBehaviour
 		{
 			characterList[0].GetComponent<CharacterControlScript>().enabled = true;
 			speechBubble.gameObject.SetActive(false);
+			if(toDeactivate != null)
+			{
+				toDeactivate.SetActive(false);
+			}
 		}
 	}
 }

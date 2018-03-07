@@ -591,6 +591,34 @@ MonoBehaviour:
       duration: 0
       wantedAngle: 0
       characterAnimation: 0
+  - name: it's all eights!!!
+    IdNumber: 8888
+    Description: EATTT
+    DialogueList:
+    - name: Mikasa
+      chracterID: 2
+      speech: Dinner is ready!
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Mikasa
+      chracterID: 2
+      speech: Come and eat
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Mikasa
+      chracterID: 2
+      speech: It's gonna get cold
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Mikasa
+      chracterID: 2
+      speech: TABETE!!!!!
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
 --- !u!114 &114198287318314870
 MonoBehaviour:
   m_ObjectHideFlags: 1
