@@ -10,6 +10,7 @@ public class ItemInteractionScript : InteractionScript
 	{
 		base.Interact ();
 		InventoryScript.Instance.AddItem(idNumber);
+		Destroy(gameObject);
 	}
 
 }

@@ -26,7 +26,6 @@ public class InteractionScript : MonoBehaviour
 	{
 		Debug.Log ("Interact on the base class");
 		player.GetComponent<CharacterControlScript>().interactImage.SetActive(false);
-		Destroy(gameObject);
 	}
 
 }
