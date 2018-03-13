@@ -8,7 +8,7 @@ public class InventoryScript : MonoBehaviour
 	public List<int> inventoryList;
 	public Sprite background;
 	int pastIndex;
-	int currentIndex;
+	public static int currentIndex;
 	const int maxSize = 5;
 
 	public static InventoryScript Instance {get; set;}

@@ -613,6 +613,12 @@ MonoBehaviour:
       duration: 3
       wantedAngle: 90
       characterAnimation: 0
+    - name: Camera Reset
+      chracterID: 0
+      speech: 
+      duration: 0
+      wantedAngle: 0
+      characterAnimation: 0
   - name: Kaizen meets second obstacle
     IdNumber: 100041
     Description: 
