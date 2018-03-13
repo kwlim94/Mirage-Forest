@@ -525,7 +525,9 @@ MonoBehaviour:
   NarrativeDatabaseList:
   - name: Waking up in the forest
     IdNumber: 100011
-    Description: Kaizen wakes up in the forest
+    Description: Kaizen was unconscious and has just woken up. Showing that Kaizen
+      does not have any memory of wear he actually is. He is searching for someone
+      (a girl)
     DialogueList:
     - name: Kaizen
       chracterID: 1
@@ -545,8 +547,8 @@ MonoBehaviour:
       duration: 3
       wantedAngle: 180
       characterAnimation: 0
-    - name: 
-      chracterID: 0
+    - name: Kaizen
+      chracterID: 1
       speech: Who is that someone ?
       duration: 2
       wantedAngle: 180
@@ -563,60 +565,261 @@ MonoBehaviour:
       duration: 2
       wantedAngle: 0
       characterAnimation: 0
-  - name: Meeting with the glowing water
-    IdNumber: 100013
-    Description: Kaizen walks on the first bridge
+  - name: Kaizen meets obstacle
+    IdNumber: 100021
+    Description: 'Explaining the jump mechanic to the player '
     DialogueList:
     - name: Kaizen
       chracterID: 1
-      speech: The water is glowing?
+      speech: Something is blocking the path
       duration: 2
       wantedAngle: 0
       characterAnimation: 0
     - name: Kaizen
       chracterID: 1
-      speech: That's pretty odd... What is this place?
+      speech: 'Seems like something has knocked this tree down '
       duration: 3
-      wantedAngle: 270
+      wantedAngle: 0
       characterAnimation: 0
     - name: Kaizen
       chracterID: 1
-      speech: It's pretty unnatural to have glowing water like this
+      speech: But it looks low enough to jump over
       duration: 3
-      wantedAngle: 270
+      wantedAngle: 0
       characterAnimation: 0
-    - name: Camera Reset
+  - name: Kaizen reached the 1st bridge
+    IdNumber: 100031
+    Description: 
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: There seems to be a bridge here, I wonder who built it?
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: 'Does someone live nearby? '
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "I can hear the sound of water\u2026"
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: Oh, the water is glowing ?
+      duration: 2
+      wantedAngle: 90
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "That\u2019s pretty odd...  what is this place ?"
+      duration: 3
+      wantedAngle: 90
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "(It\u2019s pretty unnatural to have water glowing like this)"
+      duration: 3
+      wantedAngle: 90
+      characterAnimation: 0
+  - name: Kaizen meets second obstacle
+    IdNumber: 100041
+    Description: 
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: Another thing blocking the path
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "(Such a large obstacle\u2026)"
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: I could try to push it
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: I wonder if it will move or not
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Kaizen reached 2nd bridge
+    IdNumber: 100051
+    Description: 
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: 'Hmm, there are quite a few lamps around the bridges '
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: 'The oil lamps are still lit '
+      duration: 1
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: 'Someone must have come around here not long ago '
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Kaizen reached the portal
+    IdNumber: 100061
+    Description: 
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: What is this strange thing, could it be useful?
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: 
       chracterID: 0
       speech: 
       duration: 0
       wantedAngle: 0
       characterAnimation: 0
-  - name: it's all eights!!!
-    IdNumber: 8888
-    Description: EATTT
+    - name: Kaizen
+      chracterID: 1
+      speech: "Hmm\u2026.it doesn't do anything."
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: 'Wait...looks like something is missing on top. '
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: 'Maybe I should try to look around for it.  '
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Kaizen interact the portal without the gem
+    IdNumber: 100062
+    Description: 
     DialogueList:
-    - name: Mikasa
-      chracterID: 2
-      speech: Dinner is ready!
+    - name: Kaizen
+      chracterID: 1
+      speech: "Still doesn\u2019t do anything "
       duration: 2
       wantedAngle: 0
       characterAnimation: 0
-    - name: Mikasa
-      chracterID: 2
-      speech: Come and eat
+  - name: Kaizen interact the portal with the gem
+    IdNumber: 0
+    Description: 
+    DialogueList:
+    - name: 
+      chracterID: 0
+      speech: 
+      duration: 0
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: Looks like something happening
       duration: 2
       wantedAngle: 0
       characterAnimation: 0
-    - name: Mikasa
-      chracterID: 2
-      speech: It's gonna get cold
+    - name: 
+      chracterID: 0
+      speech: 
+      duration: 0
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Kaizen meets third obstacle
+    IdNumber: 100063
+    Description: 'Tutorial Trigger for Crouching '
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: "(something\u2019s blocking the path again) "
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: '(Looks like I can fit through it but I would need to crouch under it) '
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Kaizen pick up the key
+    IdNumber: 100071
+    Description: 
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: 'What is this? A gem? '
       duration: 2
       wantedAngle: 0
       characterAnimation: 0
-    - name: Mikasa
-      chracterID: 2
-      speech: TABETE!!!!!
+    - name: Kaizen
+      chracterID: 1
+      speech: 'Why is it here ? '
       duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: Does it have some sort of purpose
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: 'Maybe I can find a use for it. Somewhere  '
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Kaizen found the book
+    IdNumber: 100081
+    Description: 
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: 
+      duration: 0
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: 'The... Eter..ni..ty... that I have.. Long..ed.. For.. '
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "The title sounds familiar\u2026 "
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "This girl...isn\u2019t she the mage that was searching for some kind
+        of power? "
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: 'It feels like i read this before.. '
+      duration: 3
       wantedAngle: 0
       characterAnimation: 0
 --- !u!114 &114198287318314870
