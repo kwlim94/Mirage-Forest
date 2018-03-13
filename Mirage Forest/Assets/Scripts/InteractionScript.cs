@@ -16,7 +16,7 @@ public class InteractionScript : MonoBehaviour
 
 	void Update ()
 	{
-		if(isInteractable && Input.GetKeyDown(KeyControlScript.Instance.interactKey.keyboardKey))
+		if(isInteractable && Input.GetKeyDown(KeyCode.E))
 		{
 			Interact ();
 		}
