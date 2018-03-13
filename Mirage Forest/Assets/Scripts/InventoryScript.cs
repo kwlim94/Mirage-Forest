@@ -8,6 +8,9 @@ public class InventoryScript : MonoBehaviour
 	public List<int> inventoryList;
 	public List<Image> inventoryImageList;
 	public Sprite background;
+	int pastIndex;
+	int currentIndex;
+	const int maxSize = 5;
 
 	public static InventoryScript Instance {get; set;}
 
@@ -22,6 +25,37 @@ public class InventoryScript : MonoBehaviour
 	void Start ()
 	{
 		inventoryList = new List<int> ();
+		currentIndex = 0;
+		inventoryImageList[currentIndex].color = Color.red;
+	}
+
+	void Update ()
+	{
+		Select();
+	}
+
+	void Select ()
+	{
+		if(Input.GetKeyDown(KeyControlScript.Instance.navigationLeft.keyboardKey))
+		{
+			pastIndex = currentIndex;
+			if(currentIndex > 0)
+				currentIndex--;
+			else
+				currentIndex = maxSize - 1;
+			inventoryImageList[currentIndex].color = Color.red;
+			inventoryImageList[pastIndex].color = Color.black;
+		}
+		else if(Input.GetKeyDown(KeyControlScript.Instance.navigationRight.keyboardKey))
+		{
+			pastIndex = currentIndex;
+			if(currentIndex < maxSize - 1)
+				currentIndex++;
+			else
+				currentIndex = 0;
+			inventoryImageList[currentIndex].color = Color.red;
+			inventoryImageList[pastIndex].color = Color.black;
+		}
 	}
 
 	public void AddItem (int idNum)

@@ -24,4 +24,9 @@ public class KeyControlScript : MonoBehaviour
 	}
 
 	public InputKey interactKey;
+	public InputKey navigationLeft;
+	public InputKey navigationRight;
+	public InputKey navigationUp;
+	public InputKey navigationDown;
+
 }
