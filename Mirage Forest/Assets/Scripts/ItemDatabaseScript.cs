@@ -22,6 +22,7 @@ public class ItemDatabaseScript : MonoBehaviour
 	}
 
 	public static ItemDatabaseScript Instance {get; set;}
+	public List<Image> inventoryImageList;
 
 	void Awake()
 	{

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class InventoryScript : MonoBehaviour
 {
 	public List<int> inventoryList;
-	public List<Image> inventoryImageList;
 	public Sprite background;
 	int pastIndex;
 	int currentIndex;
@@ -26,7 +25,7 @@ public class InventoryScript : MonoBehaviour
 	{
 		inventoryList = new List<int> ();
 		currentIndex = 0;
-		inventoryImageList[currentIndex].color = Color.red;
+		ItemDatabaseScript.Instance.inventoryImageList[currentIndex].color = Color.red;
 	}
 
 	void Update ()
@@ -43,8 +42,8 @@ public class InventoryScript : MonoBehaviour
 				currentIndex--;
 			else
 				currentIndex = maxSize - 1;
-			inventoryImageList[currentIndex].color = Color.red;
-			inventoryImageList[pastIndex].color = Color.black;
+			ItemDatabaseScript.Instance.inventoryImageList[currentIndex].color = Color.red;
+			ItemDatabaseScript.Instance.inventoryImageList[pastIndex].color = Color.black;
 		}
 		else if(Input.GetKeyDown(KeyControlScript.Instance.navigationRight.keyboardKey))
 		{
@@ -53,8 +52,8 @@ public class InventoryScript : MonoBehaviour
 				currentIndex++;
 			else
 				currentIndex = 0;
-			inventoryImageList[currentIndex].color = Color.red;
-			inventoryImageList[pastIndex].color = Color.black;
+			ItemDatabaseScript.Instance.inventoryImageList[currentIndex].color = Color.red;
+			ItemDatabaseScript.Instance.inventoryImageList[pastIndex].color = Color.black;
 		}
 	}
 
@@ -70,7 +69,7 @@ public class InventoryScript : MonoBehaviour
 		InventoryUpdate();
 	}
 
-	void InventoryUpdate ()
+	public void InventoryUpdate ()
 	{
 		for(int i = 0; i < inventoryList.Count; i++)
 		{
@@ -78,7 +77,7 @@ public class InventoryScript : MonoBehaviour
 			{
 				if(inventoryList[i] == ItemDatabaseScript.Instance.ItemList[j].itemID)
 				{
-					inventoryImageList[i].transform.GetChild(0).GetComponent<Image>().sprite = ItemDatabaseScript.Instance.ItemList[j].itemImage;
+					ItemDatabaseScript.Instance.inventoryImageList[i].transform.GetChild(0).GetComponent<Image>().sprite = ItemDatabaseScript.Instance.ItemList[j].itemImage;
 					break;
 				}
 			}
@@ -86,7 +85,10 @@ public class InventoryScript : MonoBehaviour
 
 		for(int i = 0; i < 5 - inventoryList.Count; i++)
 		{
-			inventoryImageList[inventoryList.Count + i].transform.GetChild(0).GetComponent<Image>().sprite = background;
+			ItemDatabaseScript.Instance.inventoryImageList[inventoryList.Count + i].transform.GetChild(0).GetComponent<Image>().sprite = background;
 		}
+		ItemDatabaseScript.Instance.inventoryImageList[currentIndex].color = Color.red;
 	}
 }
+
+
