@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PortalInteractionScript : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+public class PortalInteractionScript : InteractionScript
+{
+	public override void Interact ()
+	{
+		base.Interact ();
+		SceneManagerScript.Instance.LoadScene(idNumber);
 	}
 }
