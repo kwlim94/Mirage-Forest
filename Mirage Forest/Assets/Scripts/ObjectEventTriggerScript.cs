@@ -10,6 +10,5 @@ public class ObjectEventTriggerScript: InteractionScript
 	{
 		base.Interact ();
 		ThingsToActivate.SetActive(true);
-		NarrativeControlScript.Instance.LoadConversation(idNumber, ThingsToActivate);
 	}
 }
