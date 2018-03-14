@@ -23,9 +23,14 @@ public class SceneManagerScript : MonoBehaviour
 		case 0:
 			SceneManager.LoadScene("Prologue");
 			break;
-		case 999:
-			SceneManager.LoadScene("TestScene");
+		case 101:
+			SceneManager.LoadScene("Main Menu");
 			break;
 		}
+	}
+
+	public void Quit ()
+	{
+		Application.Quit();
 	}
 }

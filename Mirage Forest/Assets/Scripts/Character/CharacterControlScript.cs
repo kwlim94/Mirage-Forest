@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //! This script is used for Movement and Camera controls for the player
 public class CharacterControlScript : MonoBehaviour
@@ -33,6 +34,11 @@ public class CharacterControlScript : MonoBehaviour
 	{
 		interactImage = GameObject.Find("Interact");
 		interactImage.SetActive(false);
+		Color interactImageColor = interactImage.GetComponent<Image>().color;
+		interactImage.GetComponent<Image>().color = new Color(interactImageColor.r, interactImageColor.g, interactImageColor.b, 255.0f);
+		interactImageColor = interactImage.transform.GetChild(0).GetComponent<Text>().color;
+		interactImage.transform.GetChild(0).GetComponent<Text>().color = new Color(interactImageColor.r, interactImageColor.g, interactImageColor.b, 255.0f);
+
 		Cursor.visible = false; //HT Temporary put it here first
 		anim = model.GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();

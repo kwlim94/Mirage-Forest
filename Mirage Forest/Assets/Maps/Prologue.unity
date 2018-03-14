@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.27938524, g: 0.2613484, b: 0.20660436, a: 1}
+  m_IndirectSpecularColor: {r: 0.27938464, g: 0.26134807, b: 0.20660418, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -29355,6 +29355,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114016139919972414, guid: 0465215e843066640a4282e9cbb9d7f5,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.003921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 114084720002010260, guid: 0465215e843066640a4282e9cbb9d7f5,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.003921569
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0465215e843066640a4282e9cbb9d7f5, type: 2}
   m_IsPrefabParent: 0
@@ -36616,7 +36626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683157d7f2a63a44eaf093a01d60752e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idNumber: 100063
+  idNumber: 100101
   triggerType: 0
 --- !u!65 &1620470135
 BoxCollider:
@@ -37800,7 +37810,7 @@ Prefab:
     - target: {fileID: 114901119112027636, guid: a0dfb44235bbe7340879fbba165397f5,
         type: 2}
       propertyPath: idNumber
-      value: 999
+      value: 101
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dfb44235bbe7340879fbba165397f5, type: 2}

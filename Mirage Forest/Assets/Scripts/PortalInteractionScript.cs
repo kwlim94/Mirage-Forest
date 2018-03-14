@@ -19,11 +19,20 @@ public class PortalInteractionScript : InteractionScript
 			SceneManagerScript.Instance.LoadScene(idNumber);
 		else
 		{
-			if(InventoryScript.Instance.inventoryList.Count > 0 && InventoryScript.Instance.inventoryList[InventoryScript.currentIndex] == 1)
+			int currentIndex = InventoryScript.currentIndex;
+			if(currentIndex < InventoryScript.Instance.inventoryList.Count)
 			{
-				NarrativeControlScript.Instance.LoadConversation(100063);
-				transform.GetChild(1).gameObject.SetActive(true);
-				portalState = PortalState.ON;
+				if(InventoryScript.Instance.inventoryList[currentIndex] == 1)
+				{
+					NarrativeControlScript.Instance.LoadConversation(100063);
+					transform.GetChild(1).gameObject.SetActive(true);
+					portalState = PortalState.ON;
+					InventoryScript.Instance.RemoveItem(currentIndex);
+				}
+				else
+				{
+					NarrativeControlScript.Instance.LoadConversation(100062);
+				}
 			}
 			else
 			{

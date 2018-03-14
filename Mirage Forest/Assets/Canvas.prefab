@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.36764705, g: 0.36764705, b: 0.36764705, a: 1}
+  m_Color: {r: 0.36764705, g: 0.36764705, b: 0.36764705, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -714,7 +714,7 @@ MonoBehaviour:
       wantedAngle: 0
       characterAnimation: 0
   - name: Kaizen interact the portal with the gem
-    IdNumber: 0
+    IdNumber: 100063
     Description: 
     DialogueList:
     - name: 
@@ -736,7 +736,7 @@ MonoBehaviour:
       wantedAngle: 0
       characterAnimation: 0
   - name: Kaizen meets third obstacle
-    IdNumber: 100063
+    IdNumber: 100101
     Description: 'Tutorial Trigger for Crouching '
     DialogueList:
     - name: Kaizen
