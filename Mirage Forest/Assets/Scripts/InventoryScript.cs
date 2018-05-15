@@ -25,12 +25,14 @@ public class InventoryScript : MonoBehaviour
 	{
 		inventoryList = new List<int> ();
 		currentIndex = 0;
-		ItemDatabaseScript.Instance.inventoryImageList[currentIndex].color = Color.red;
+		if(ItemDatabaseScript.Instance != null)
+			ItemDatabaseScript.Instance.inventoryImageList[currentIndex].color = Color.red;
 	}
 
 	void Update ()
 	{
-		Select();
+		if(ItemDatabaseScript.Instance != null)
+			Select();
 	}
 
 	void Select ()
