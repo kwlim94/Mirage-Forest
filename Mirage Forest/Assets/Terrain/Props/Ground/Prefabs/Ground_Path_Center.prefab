@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 65749189479411894}
   m_Layer: 0
   m_Name: Ground_Path_Center
-  m_TagString: Ground
+  m_TagString: Ground_Soil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

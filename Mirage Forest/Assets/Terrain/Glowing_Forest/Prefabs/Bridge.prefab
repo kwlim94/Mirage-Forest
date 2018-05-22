@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 64000010672999302}
   m_Layer: 0
   m_Name: Bridge
-  m_TagString: Ground
+  m_TagString: Ground_Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

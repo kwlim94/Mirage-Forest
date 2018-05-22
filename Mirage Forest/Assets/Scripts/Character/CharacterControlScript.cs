@@ -188,7 +188,7 @@ public class CharacterControlScript : MonoBehaviour
 
 	void OnCollisionEnter(Collision col)
 	{
-		if(col.transform.tag == "Ground")
+		if(col.transform.tag == "Ground_Soil" || col.transform.tag == "Ground_Wood" || col.transform.tag == "Ground_Elevated")
 		{
 			isGround = true;
 		}

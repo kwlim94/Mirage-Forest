@@ -8,6 +8,9 @@ TagManager:
   - Characters
   - Inventory
   - Interactable
+  - Ground_Soil
+  - Ground_Elevated
+  - Ground_Wood
   layers:
   - Default
   - TransparentFX
