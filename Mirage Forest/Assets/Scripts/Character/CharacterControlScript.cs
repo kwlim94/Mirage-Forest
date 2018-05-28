@@ -32,6 +32,7 @@ public class CharacterControlScript : MonoBehaviour
 
 	void Start ()
 	{
+		walkingSpeed = 5.0f;
 		interactImage = GameObject.Find("Interact");
 		interactImage.SetActive(false);
 		Color interactImageColor = interactImage.GetComponent<Image>().color;
@@ -76,6 +77,7 @@ public class CharacterControlScript : MonoBehaviour
 			characterCollision.center = new Vector3(0.0f, 0.5f, 0.0f);
 			anim.SetBool("Crouch", true);
 			isCrouch = true;
+			walkingSpeed = 2.0f;
 		}
 		if(Input.GetKeyUp(KeyCode.LeftShift))
 		{
@@ -83,6 +85,7 @@ public class CharacterControlScript : MonoBehaviour
 			characterCollision.center = new Vector3(0.0f, 1.0f, 0.0f);
 			anim.SetBool("Crouch", false);
 			isCrouch = false;
+			walkingSpeed = 5.0f;
 		}
 
 		if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
