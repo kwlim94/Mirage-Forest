@@ -4009,11 +4009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f26323f80b61344bbc14d33e3e068d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudoClipInfoList:
-  - audioClipID: 201
-    audioClip: {fileID: 8300000, guid: 11e74443f852ca44db30f0590e9d02e9, type: 3}
-  - audioClipID: 202
-    audioClip: {fileID: 0}
 --- !u!124 &124585590261117304
 Behaviour:
   m_ObjectHideFlags: 1

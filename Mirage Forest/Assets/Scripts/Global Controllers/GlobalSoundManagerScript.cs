@@ -30,16 +30,25 @@ public class GlobalSoundManagerScript : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 
+	//! Lists
 	public List<AudioClipInfo> AudoClipInfoList;
+	public List<AudioSource> BGMLoopingSoundsList = new List<AudioSource>();
+	public List<AudioSource> SFXLoopingSoundsList = new List<AudioSource>();
+
+	//! Variables
 	public AudioSource BGMAudioSource;
-	public List<AudioSource> LoopingSoundsList = new List<AudioSource>();
+	public AudioSource SFXAudioSource;
+	public float bgmVolume;
+	public float sfxVolume;
 
 	void Start()
 	{
+		bgmVolume = 0.5f;
+		sfxVolume = 0.5f;
 		AddLoopingSound(0.0f, AudioClipID.BGM_Forest, 1);
 	}
 
-	AudioClip FindAudioClip(AudioClipID audioClipID)
+	public AudioClip FindAudioClip(AudioClipID audioClipID)
 	{
 		for (int i = 0; i < AudoClipInfoList.Count; i++)
 		{
@@ -49,16 +58,31 @@ public class GlobalSoundManagerScript : MonoBehaviour
 			}
 		}
 
-		Debug.Log("Audio Clip ID not found");
+		Debug.LogError("Audio Clip ID not found (Global)");
 
 		return null;
 	}
 
-	public void PlaySound(AudioClipID audioClipID)
+	/*
+	==================================================
+					AUDIO PLAYBACK
+	==================================================
+	*/
+
+
+	//! audio type: 1 for BGM 2 for SFX
+	public void PlaySound(AudioClipID audioClipID, int audioType)
 	{
-		BGMAudioSource.PlayOneShot(FindAudioClip(audioClipID));
-		BGMAudioSource.loop = false;
-		BGMAudioSource.Play();
+		if(audioType == 1)
+		{
+			BGMAudioSource.PlayOneShot(FindAudioClip(audioClipID),bgmVolume);
+			BGMAudioSource.loop = false;
+		}
+		else
+		{
+			SFXAudioSource.PlayOneShot(FindAudioClip(audioClipID),sfxVolume);
+			SFXAudioSource.loop = false;
+		}
 	}
 
 	//! audio type: 1 for BGM 2 for SFX
@@ -68,19 +92,13 @@ public class GlobalSoundManagerScript : MonoBehaviour
 
 		if(audioType == 1)
 		{
-			BGMAudioSource.clip = clipToPlay;
-			BGMAudioSource.loop = true;
-			BGMAudioSource.Play();
-		}
-		else
-		{
-			for(int i = 0; i < LoopingSoundsList.Count; i++)
+			for(int i = 0; i < BGMLoopingSoundsList.Count; i++)
 			{
-				if(LoopingSoundsList[i].clip == clipToPlay)
+				if(BGMLoopingSoundsList[i].clip == clipToPlay)
 				{
-					if(!LoopingSoundsList[i].isPlaying)
+					if(!BGMLoopingSoundsList[i].isPlaying)
 					{
-						LoopingSoundsList[i].Play();
+						BGMLoopingSoundsList[i].Play();
 					}
 					return;
 				}
@@ -90,11 +108,34 @@ public class GlobalSoundManagerScript : MonoBehaviour
 			newAudio.clip = clipToPlay;
 			newAudio.loop = true;
 			newAudio.Play();
-			LoopingSoundsList.Add(newAudio);
+			newAudio.volume = bgmVolume;
+			BGMLoopingSoundsList.Add(newAudio);
+		}
+		else
+		{
+			for(int i = 0; i < SFXLoopingSoundsList.Count; i++)
+			{
+				if(SFXLoopingSoundsList[i].clip == clipToPlay)
+				{
+					if(!SFXLoopingSoundsList[i].isPlaying)
+					{
+						SFXLoopingSoundsList[i].Play();
+					}
+					return;
+				}
+			}
+
+			AudioSource newAudio = SFXAudioSource.gameObject.AddComponent<AudioSource>();
+			newAudio.clip = clipToPlay;
+			newAudio.loop = true;
+			newAudio.Play();
+			newAudio.volume = sfxVolume;
+			SFXLoopingSoundsList.Add(newAudio);
 		}
 	}
 
-	public void StopLoopingSound(float fadeOutDuration, AudioClipID audioClipID)
+	//! audio type: 1 for BGM 2 for SFX
+	public void StopLoopingSound(float fadeOutDuration, AudioClipID audioClipID, int audioType)
 	{
 		AudioClip clipToStop = FindAudioClip(audioClipID);
 
@@ -103,12 +144,53 @@ public class GlobalSoundManagerScript : MonoBehaviour
 			return;
 		}
 
-		for(int i = 0; i < LoopingSoundsList.Count; i++)
+		if(audioType == 1)
 		{
-			if(LoopingSoundsList[i].clip == clipToStop)
+			for(int i = 0; i < BGMLoopingSoundsList.Count; i++)
 			{
-				LoopingSoundsList[i].Stop();
+				if(BGMLoopingSoundsList[i].clip == clipToStop)
+				{
+					BGMLoopingSoundsList[i].Stop();
+					break;
+				}
 			}
+		}
+		else
+		{
+			for(int i = 0; i < SFXLoopingSoundsList.Count; i++)
+			{
+				if(SFXLoopingSoundsList[i].clip == clipToStop)
+				{
+					SFXLoopingSoundsList[i].Stop();
+					break;
+				}
+			}
+		}
+	}
+
+	/*
+	==================================================
+					VOLUME CONTROL
+	==================================================
+	*/
+
+	public void BGMVolumeControl(float value)
+	{
+		bgmVolume = value;
+		BGMAudioSource.volume = bgmVolume;
+		for(int i = 0; i < BGMLoopingSoundsList.Count; i++)
+		{
+			BGMLoopingSoundsList[i].volume = bgmVolume;
+		}
+	}
+
+	public void SFXVolumeControl(float value)
+	{
+		sfxVolume = value;
+		SFXAudioSource.volume = sfxVolume;
+		for(int i = 0; i < SFXLoopingSoundsList.Count; i++)
+		{
+			SFXLoopingSoundsList[i].volume = sfxVolume;
 		}
 	}
 }

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class LocalSoundManagerScript : MonoBehaviour
 {
+	//! variables
 	bool isWalkingOnWood;
 	bool isWalkingOnSoil;
 	AudioSource walkingSound;
 
-	public List<AudioClipInfo> AudoClipInfoList;
-
 	void Start()
 	{
 		walkingSound = gameObject.AddComponent<AudioSource>();
+		GlobalSoundManagerScript.Instance.SFXLoopingSoundsList.Add(walkingSound);
 	}
 
 	void Update ()
@@ -21,7 +21,7 @@ public class LocalSoundManagerScript : MonoBehaviour
 		{
 			if(isWalkingOnSoil)
 			{
-				walkingSound.clip = FindAudioClip(AudioClipID.SFX_WalkOnSoil);
+				walkingSound.clip = GlobalSoundManagerScript.Instance.FindAudioClip(AudioClipID.SFX_WalkOnSoil);
 				if(!walkingSound.isPlaying)
 				{
 					walkingSound.loop = true;
@@ -30,7 +30,7 @@ public class LocalSoundManagerScript : MonoBehaviour
 			}
 			else if(isWalkingOnWood)
 			{
-				walkingSound.clip = FindAudioClip(AudioClipID.SFX_WalkOnSoil);
+				walkingSound.clip = GlobalSoundManagerScript.Instance.FindAudioClip(AudioClipID.SFX_WalkOnSoil);
 				if(!walkingSound.isPlaying)
 				{
 					walkingSound.loop = true;
@@ -41,6 +41,15 @@ public class LocalSoundManagerScript : MonoBehaviour
 			{
 				walkingSound.Stop();
 			}
+
+			if(Input.GetKey(KeyCode.LeftShift))
+			{
+				walkingSound.pitch = 0.75f;
+			}
+			else
+			{
+				walkingSound.pitch = 1.6f;
+			}
 		}
 		else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
 		{
@@ -48,20 +57,11 @@ public class LocalSoundManagerScript : MonoBehaviour
 		}
 	}
 
-	AudioClip FindAudioClip(AudioClipID audioClipID)
-	{
-		for (int i = 0; i < AudoClipInfoList.Count; i++)
-		{
-			if (audioClipID == AudoClipInfoList[i].audioClipID)
-			{
-				return AudoClipInfoList[i].audioClip;
-			}
-		}
-
-		Debug.Log("Audio Clip ID not found");
-
-		return null;
-	}
+	/*
+	==================================================
+				   COLLISION DETECTION
+	==================================================
+	*/
 
 	void OnCollisionStay(Collision col)
 	{

@@ -181,13 +181,17 @@ MonoBehaviour:
   - audioClipID: 101
     audioClip: {fileID: 8300000, guid: fccf8f76916e87d4d8e547c88e3f7bc1, type: 3}
   - audioClipID: 201
-    audioClip: {fileID: 0}
-  - audioClipID: 202
     audioClip: {fileID: 8300000, guid: 11e74443f852ca44db30f0590e9d02e9, type: 3}
+  - audioClipID: 202
+    audioClip: {fileID: 0}
   - audioClipID: 304
     audioClip: {fileID: 0}
+  BGMLoopingSoundsList: []
+  SFXLoopingSoundsList: []
   BGMAudioSource: {fileID: 82691969951510790}
-  LoopingSoundsList: []
+  SFXAudioSource: {fileID: 0}
+  bgmVolume: 0
+  sfxVolume: 0
 --- !u!114 &114584059295214670
 MonoBehaviour:
   m_ObjectHideFlags: 1
