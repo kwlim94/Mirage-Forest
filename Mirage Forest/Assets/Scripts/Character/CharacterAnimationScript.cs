@@ -8,6 +8,8 @@ public enum CharacterAnimation
 	WALK,
 	JUMP,
 	GET_UP,
+	SIT_ON_CHAIR,
+	SIT_ON_GROUND,
 }
 
 public class CharacterAnimationScript : MonoBehaviour
@@ -44,13 +46,13 @@ public class CharacterAnimationScript : MonoBehaviour
 			break;
 		case CharacterAnimation.JUMP:
 			anim.Play("Jump");
-			print("Jump Animation");
 			break;
 		case CharacterAnimation.GET_UP:
 			anim.Play("Stand Up");
-			print("Stand Animation");
 			break;
-			
+		case CharacterAnimation.SIT_ON_CHAIR:
+			anim.Play("Sita");
+			break;
 		}
 	}
 }

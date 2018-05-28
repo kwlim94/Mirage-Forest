@@ -84,7 +84,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -178,15 +178,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudoClipInfoList:
-  - audioClipID: 301
-    audioClip: {fileID: 8300000, guid: 7fb7107c5c10fa14b8fd3e48ee417962, type: 3}
-  - audioClipID: 302
+  - audioClipID: 101
+    audioClip: {fileID: 8300000, guid: fccf8f76916e87d4d8e547c88e3f7bc1, type: 3}
+  - audioClipID: 201
     audioClip: {fileID: 0}
-  - audioClipID: 303
-    audioClip: {fileID: 0}
+  - audioClipID: 202
+    audioClip: {fileID: 8300000, guid: 11e74443f852ca44db30f0590e9d02e9, type: 3}
   - audioClipID: 304
     audioClip: {fileID: 0}
   BGMAudioSource: {fileID: 82691969951510790}
+  LoopingSoundsList: []
 --- !u!114 &114584059295214670
 MonoBehaviour:
   m_ObjectHideFlags: 1

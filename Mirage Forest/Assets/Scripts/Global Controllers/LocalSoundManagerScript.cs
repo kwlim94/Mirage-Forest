@@ -6,6 +6,14 @@ public class LocalSoundManagerScript : MonoBehaviour
 {
 	bool isWalkingOnWood;
 	bool isWalkingOnSoil;
+	AudioSource walkingSound;
+
+	public List<AudioClipInfo> AudoClipInfoList;
+
+	void Start()
+	{
+		walkingSound = gameObject.AddComponent<AudioSource>();
+	}
 
 	void Update ()
 	{
@@ -13,27 +21,49 @@ public class LocalSoundManagerScript : MonoBehaviour
 		{
 			if(isWalkingOnSoil)
 			{
-				GlobalSoundManagerScript.Instance.AddLoopingSound(0.0f, AudioClipID.SFX_WalkOnWood, 2); //HT Temp
+				walkingSound.clip = FindAudioClip(AudioClipID.SFX_WalkOnSoil);
+				if(!walkingSound.isPlaying)
+				{
+					walkingSound.loop = true;
+					walkingSound.Play();
+				}
 			}
 			else if(isWalkingOnWood)
 			{
-				GlobalSoundManagerScript.Instance.AddLoopingSound(0.0f, AudioClipID.SFX_WalkOnWood, 2);
+				walkingSound.clip = FindAudioClip(AudioClipID.SFX_WalkOnSoil);
+				if(!walkingSound.isPlaying)
+				{
+					walkingSound.loop = true;
+					walkingSound.Play();
+				}
+			}
+			else
+			{
+				walkingSound.Stop();
 			}
 		}
-		else
+		else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
 		{
-			if(isWalkingOnSoil)
-			{
-				GlobalSoundManagerScript.Instance.StopLoopingSound(0.0f,  AudioClipID.SFX_WalkOnWood); //HT Temp
-			}
-			else if(isWalkingOnWood)
-			{
-				GlobalSoundManagerScript.Instance.StopLoopingSound(0.0f,  AudioClipID.SFX_WalkOnWood);
-			}
+			walkingSound.Stop();
 		}
 	}
 
-	void OnCollisionEnter(Collision col)
+	AudioClip FindAudioClip(AudioClipID audioClipID)
+	{
+		for (int i = 0; i < AudoClipInfoList.Count; i++)
+		{
+			if (audioClipID == AudoClipInfoList[i].audioClipID)
+			{
+				return AudoClipInfoList[i].audioClip;
+			}
+		}
+
+		Debug.Log("Audio Clip ID not found");
+
+		return null;
+	}
+
+	void OnCollisionStay(Collision col)
 	{
 		if(col.transform.tag == "Ground_Soil")
 		{
@@ -52,14 +82,10 @@ public class LocalSoundManagerScript : MonoBehaviour
 		if(col.transform.tag == "Ground_Soil")
 		{
 			isWalkingOnSoil = false;
-			if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-				GlobalSoundManagerScript.Instance.StopLoopingSound(0.0f,  AudioClipID.SFX_WalkOnWood); //HT Temp
 		}
 		else if(col.transform.tag == "Ground_Wood")
 		{
 			isWalkingOnWood = false;
-			if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-				GlobalSoundManagerScript.Instance.StopLoopingSound(0.0f,  AudioClipID.SFX_WalkOnWood);
 		}
 	}
 

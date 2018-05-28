@@ -814,6 +814,16 @@ MonoBehaviour:
       duration: 3
       wantedAngle: 0
       characterAnimation: 0
+  - name: This is testing the bench
+    IdNumber: 8888
+    Description: 
+    DialogueList:
+    - name: Erina
+      chracterID: 2
+      speech: Hello, how are you?
+      duration: 100
+      wantedAngle: 0
+      characterAnimation: 4
 --- !u!114 &114198287318314870
 MonoBehaviour:
   m_ObjectHideFlags: 1
