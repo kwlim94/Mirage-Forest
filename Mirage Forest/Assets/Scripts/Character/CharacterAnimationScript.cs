@@ -51,7 +51,7 @@ public class CharacterAnimationScript : MonoBehaviour
 			anim.Play("Stand Up");
 			break;
 		case CharacterAnimation.SIT_ON_CHAIR:
-			anim.Play("Sita");
+			anim.Play("Sit");
 			break;
 		}
 	}

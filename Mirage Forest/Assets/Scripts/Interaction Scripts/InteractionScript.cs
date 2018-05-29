@@ -12,6 +12,7 @@ public class InteractionScript : MonoBehaviour
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 		isInteractable = false;
+		OtherStart();
 	}
 
 	void Update ()
@@ -21,6 +22,8 @@ public class InteractionScript : MonoBehaviour
 			Interact ();
 		}
 	}
+
+	public virtual void OtherStart(){}
 
 	public virtual void Interact ()
 	{

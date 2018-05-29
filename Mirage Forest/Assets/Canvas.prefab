@@ -820,8 +820,32 @@ MonoBehaviour:
     DialogueList:
     - name: Erina
       chracterID: 2
-      speech: Hello, how are you?
-      duration: 100
+      speech: Don't cry, don't cry
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 4
+    - name: Kaizen
+      chracterID: 1
+      speech: Umm...I'm not exactly crying...I...
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Erina
+      chracterID: 2
+      speech: I'm here for you
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 4
+    - name: Kaizen
+      chracterID: 1
+      speech: I want to know the way home
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Erina
+      chracterID: 2
+      speech: Everthing will be alright
+      duration: 4
       wantedAngle: 0
       characterAnimation: 4
 --- !u!114 &114198287318314870
