@@ -30,7 +30,7 @@ public class LocalSoundManagerScript : MonoBehaviour
 			}
 			else if(isWalkingOnWood)
 			{
-				walkingSound.clip = GlobalSoundManagerScript.Instance.FindAudioClip(AudioClipID.SFX_WalkOnSoil);
+				walkingSound.clip = GlobalSoundManagerScript.Instance.FindAudioClip(AudioClipID.SFX_WalkOnWood);
 				if(!walkingSound.isPlaying)
 				{
 					walkingSound.loop = true;
