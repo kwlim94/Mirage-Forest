@@ -29,6 +29,9 @@ public class CharacterControlScript : MonoBehaviour
 	float desiredRotationAngle; //HT Not Used at the moment
 	public bool isLerping; //HT This used to check if the camera is in the middle of reseting
 	bool isCrouch;
+	private const float y_Angle_Min = -10.0f;
+	private const float y_Angle_Max = 30.0f;
+	public float currentY;
 
 	void Start ()
 	{
@@ -132,13 +135,29 @@ public class CharacterControlScript : MonoBehaviour
 
 	void CameraRotation ()
 	{
-			transform.eulerAngles = new Vector3(transform.eulerAngles.x,
-												transform.eulerAngles.y + Input.GetAxis("Mouse X") * cameraRotationSpeed * Time.deltaTime,
-												transform.eulerAngles.z);
-			
-			model.transform.localEulerAngles = new Vector3(model.transform.localEulerAngles.x,
-															model.transform.localEulerAngles.y - Input.GetAxis("Mouse X") * cameraRotationSpeed * Time.deltaTime,
-															model.transform.localEulerAngles.z);
+			//transform.eulerAngles = new Vector3(transform.eulerAngles.x,
+			//									transform.eulerAngles.y + Input.GetAxis("Mouse X") * cameraRotationSpeed * Time.deltaTime,
+			//									transform.eulerAngles.z);
+		currentY = Camera.main.transform.eulerAngles.x + Input.GetAxis("Mouse Y") * cameraRotationSpeed * Time.deltaTime;
+		//currentY = Mathf.Clamp(currentY, y_Angle_Min, y_Angle_Max);
+        if(currentY <= 360.0 + y_Angle_Min && currentY > y_Angle_Max)
+        {
+           currentY = y_Angle_Min;
+        }
+        else if (currentY >= y_Angle_Max  && currentY < 360.0f + y_Angle_Min)
+        {
+           currentY = y_Angle_Max;
+        }
+    
+        Camera.main.transform.eulerAngles = new Vector3(currentY, Camera.main.transform.eulerAngles.y, Camera.main.transform.eulerAngles.z);
+		
+
+
+		//	model.transform.localEulerAngles = new Vector3(model.transform.localEulerAngles.x,
+		//													model.transform.localEulerAngles.y - Input.GetAxis("Mouse X") * cameraRotationSpeed * Time.deltaTime,
+		//													model.transform.localEulerAngles.z);
+
+
 	}
 
 	void ResetCamera ()
