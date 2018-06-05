@@ -18,4 +18,24 @@ public class TempScript : MonoBehaviour
 	{
 		Application.Quit();
 	}
+
+    public void Setting()
+    {
+        SceneManagerScript.Instance.LoadScene(102);
+    }
+
+    public void SoundSetting()
+    {
+        SceneManagerScript.Instance.LoadScene(103);
+    }
+
+    public void Pause()
+    {
+        SceneManagerScript.Instance.LoadScene(104);
+    }
+
+
+
+
+
 }

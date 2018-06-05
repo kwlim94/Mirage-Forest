@@ -140,8 +140,6 @@ public class CharacterControlScript : MonoBehaviour
 											transform.eulerAngles.y + Input.GetAxis("Mouse X") * cameraRotationSpeed * Time.deltaTime,
 											transform.eulerAngles.z);
 
-        Camera.main.transform.eulerAngles = new Vector3(currentY, Camera.main.transform.eulerAngles.y, Camera.main.transform.eulerAngles.z);
-
        	model.transform.localEulerAngles = new Vector3(model.transform.localEulerAngles.x,
         													model.transform.localEulerAngles.y - Input.GetAxis("Mouse X") * cameraRotationSpeed * Time.deltaTime,
         													model.transform.localEulerAngles.z);
@@ -158,9 +156,13 @@ public class CharacterControlScript : MonoBehaviour
         {
             currentY = y_Angle_Max;
         }
+
+        Camera.main.transform.eulerAngles = new Vector3(currentY, Camera.main.transform.eulerAngles.y, Camera.main.transform.eulerAngles.z);
+
+
     }
 
-	void ResetCamera ()
+    void ResetCamera ()
 	{
 		//desiredRotationAngle = transform.eulerAngles.y + model.transform.localEulerAngles.y; //! This code is now not in use at the moment
 		isLerping = true;

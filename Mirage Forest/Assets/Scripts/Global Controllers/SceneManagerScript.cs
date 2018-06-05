@@ -26,7 +26,16 @@ public class SceneManagerScript : MonoBehaviour
 		case 101:
 			SceneManager.LoadScene("Main Menu");
 			break;
-		}
+        case 102:
+            SceneManager.LoadScene("Settings Menu");
+            break;
+        case 103:
+            SceneManager.LoadScene("Sound Menu");
+            break;
+        case 104:
+            SceneManager.LoadScene("Pause Menu");
+            break;
+        }
 	}
 
 	public void Quit ()
