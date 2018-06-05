@@ -32,9 +32,6 @@ public class SceneManagerScript : MonoBehaviour
         case 103:
             SceneManager.LoadScene("Sound Menu");
             break;
-        case 104:
-            SceneManager.LoadScene("Pause Menu");
-            break;
         }
 	}
 

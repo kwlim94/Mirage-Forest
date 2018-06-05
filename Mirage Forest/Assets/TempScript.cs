@@ -19,6 +19,11 @@ public class TempScript : MonoBehaviour
 		Application.Quit();
 	}
 
+    public void MainMenu()
+    {
+        SceneManagerScript.Instance.LoadScene(101);
+    }
+
     public void Setting()
     {
         SceneManagerScript.Instance.LoadScene(102);
@@ -29,10 +34,13 @@ public class TempScript : MonoBehaviour
         SceneManagerScript.Instance.LoadScene(103);
     }
 
-    public void Pause()
+    public void ControlSetting()
     {
-        SceneManagerScript.Instance.LoadScene(104);
+
     }
+
+
+ 
 
 
 
