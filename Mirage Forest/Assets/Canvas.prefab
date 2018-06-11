@@ -509,345 +509,334 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NarrativeDatabaseList:
-  - name: Waking up in the forest
-    IdNumber: 100011
-    Description: Kaizen was unconscious and has just woken up. Showing that Kaizen
-      does not have any memory of wear he actually is. He is searching for someone
-      (a girl)
+  - name: Start of the game
+    IdNumber: 110011
+    Description: Blurry cut scene
+    DialogueList:
+    - name: Erena
+      chracterID: 2
+      speech: Wake up! Wake up!
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Kaizen is concious
+    IdNumber: 110021
+    Description: Kaizen blackout
     DialogueList:
     - name: Kaizen
       chracterID: 1
-      speech: '...'
-      duration: 6
-      wantedAngle: 180
-      characterAnimation: 3
-    - name: Kaizen
-      chracterID: 1
-      speech: Where am I?
-      duration: 2
-      wantedAngle: 180
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: "I remember wanting to look for something\u2026 no, someone\u2026"
+      speech: Why does my body feel so heavy?
       duration: 3
-      wantedAngle: 180
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: Who is that someone ?
-      duration: 2
-      wantedAngle: 180
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: 'I can vaguely remember that someone is a girl '
-      duration: 3
-      wantedAngle: 180
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: "I\u2019ll just start looking around"
-      duration: 2
       wantedAngle: 0
       characterAnimation: 0
-  - name: Kaizen meets obstacle
-    IdNumber: 100021
-    Description: 'Explaining the jump mechanic to the player '
+  - name: Kaizen gets up
+    IdNumber: 110031
+    Description: Kaizen couldnt remember anything
     DialogueList:
     - name: Kaizen
       chracterID: 1
-      speech: Something is blocking the path
-      duration: 2
+      speech: "Ack!! My head hurts! Why can\u2019t I remember anything? It all feels
+        blank"
+      duration: 5
       wantedAngle: 0
       characterAnimation: 0
     - name: Kaizen
       chracterID: 1
-      speech: 'Seems like something has knocked this tree down '
+      speech: Where am I? I was in my room just a few moments ago
       duration: 3
       wantedAngle: 0
       characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: But it looks low enough to jump over
-      duration: 3
-      wantedAngle: 0
-      characterAnimation: 0
-  - name: Kaizen reached the 1st bridge
-    IdNumber: 100031
-    Description: 
+  - name: Kaizen walking while thinking
+    IdNumber: 110041
+    Description: A little while since Kaizen started walking a little, he stops
     DialogueList:
     - name: Kaizen
       chracterID: 1
-      speech: There seems to be a bridge here, I wonder who built it?
-      duration: 4
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: 'Does someone live nearby? '
+      speech: Hello!! Is anyone there?
       duration: 2
       wantedAngle: 0
       characterAnimation: 0
     - name: Kaizen
       chracterID: 1
-      speech: "I can hear the sound of water\u2026"
+      speech: Can anyone hear me?!
       duration: 2
       wantedAngle: 0
       characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: Oh, the water is glowing ?
-      duration: 2
-      wantedAngle: 90
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: "That\u2019s pretty odd...  what is this place ?"
-      duration: 3
-      wantedAngle: 90
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: "(It\u2019s pretty unnatural to have water glowing like this)"
-      duration: 3
-      wantedAngle: 90
-      characterAnimation: 0
-    - name: Camera Reset
-      chracterID: 0
-      speech: 
-      duration: 0
-      wantedAngle: 0
-      characterAnimation: 0
-  - name: Kaizen meets second obstacle
-    IdNumber: 100041
-    Description: 
+  - name: Kaizen exits the cave
+    IdNumber: 110051
+    Description: Kaizen walks out from the cave area
     DialogueList:
     - name: Kaizen
       chracterID: 1
-      speech: Another thing blocking the path
-      duration: 2
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: "(Such a large obstacle\u2026)"
-      duration: 2
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: I could try to push it
-      duration: 2
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: I wonder if it will move or not
-      duration: 2
-      wantedAngle: 0
-      characterAnimation: 0
-  - name: Kaizen reached 2nd bridge
-    IdNumber: 100051
-    Description: 
-    DialogueList:
-    - name: Kaizen
-      chracterID: 1
-      speech: 'Hmm, there are quite a few lamps around the bridges '
+      speech: "There appears to be a path leading from here\u2026"
       duration: 3
       wantedAngle: 0
       characterAnimation: 0
     - name: Kaizen
       chracterID: 1
-      speech: 'The oil lamps are still lit '
+      speech: Maybe I could find someone if I follow it?
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Kaizen came to a fork
+    IdNumber: 110061
+    Description: Kaizen took the left path
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: What are you?
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Green spirit
+      chracterID: 5
+      speech: Stop running away from things
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: Huh, what does that mean?
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Kaizen came back to the fork
+    IdNumber: 110071
+    Description: Kaizen took the right path
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: What are these peculiar lights?
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Kaizen is at the edge of the platforming area
+    IdNumber: 110081
+    Description: Missing ground and floating grounds
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: Woah!!
       duration: 1
       wantedAngle: 0
       characterAnimation: 0
     - name: Kaizen
       chracterID: 1
-      speech: 'Someone must have come around here not long ago '
-      duration: 3
+      speech: "The fall doesn\u2019t seem too bad. Although, if I do fall, I would
+        have to climb up that ledge and start over"
+      duration: 5
       wantedAngle: 0
       characterAnimation: 0
-  - name: Kaizen reached the portal
-    IdNumber: 100061
-    Description: 
+  - name: After 1st platforming area
+    IdNumber: 110091
+    Description: Kaizen encounters the second fork in the road
     DialogueList:
     - name: Kaizen
       chracterID: 1
-      speech: What is this strange thing, could it be useful?
+      speech: "Its shimmering\u2026. or dancing"
       duration: 2
       wantedAngle: 0
       characterAnimation: 0
-    - name: 
-      chracterID: 0
-      speech: 
+    - name: Green spirit
+      chracterID: 5
+      speech: "I see a Dark path ahead of you\u2026"
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "It\u2019s\u2026 gone. That sounded so grim\u2026"
       duration: 0
       wantedAngle: 0
       characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: "Hmm\u2026.it doesn't do anything."
-      duration: 2
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: 'Wait...looks like something is missing on top. '
-      duration: 3
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: 'Maybe I should try to look around for it.  '
-      duration: 2
-      wantedAngle: 0
-      characterAnimation: 0
-  - name: Kaizen interact the portal without the gem
-    IdNumber: 100062
-    Description: 
+  - name: Takes the clear side
+    IdNumber: 110101
+    Description: Blockage on Kaizen's path
     DialogueList:
     - name: Kaizen
       chracterID: 1
-      speech: "Still doesn\u2019t do anything "
-      duration: 2
+      speech: I doubt I can get past it, even if I tried. Seems like I would have
+        to find a different path or backtrack
+      duration: 5
       wantedAngle: 0
       characterAnimation: 0
-  - name: Kaizen interact the portal with the gem
-    IdNumber: 100063
-    Description: 
-    DialogueList:
-    - name: 
-      chracterID: 0
-      speech: 
-      duration: 0
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: Looks like something happening
-      duration: 2
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: 
-      chracterID: 0
-      speech: 
-      duration: 0
-      wantedAngle: 0
-      characterAnimation: 0
-  - name: Kaizen meets third obstacle
-    IdNumber: 100101
-    Description: 'Tutorial Trigger for Crouching '
+  - name: Kaizen finds another path, blocked by something
+    IdNumber: 110111
+    Description: Kaizen walks to the opened path and go near to a tv
     DialogueList:
     - name: Kaizen
       chracterID: 1
-      speech: "(something\u2019s blocking the path again) "
-      duration: 3
+      speech: "Hey what\u2019s that thing over there?"
+      duration: 2
       wantedAngle: 0
       characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: '(Looks like I can fit through it but I would need to crouch under it) '
-      duration: 4
-      wantedAngle: 0
-      characterAnimation: 0
-  - name: Kaizen pick up the key
-    IdNumber: 100071
-    Description: 
+  - name: Kaizen/Player goes right next to the TV
+    IdNumber: 110121
+    Description: Other path is blocked, Kaizen walk to the tv
     DialogueList:
     - name: Kaizen
       chracterID: 1
-      speech: 'What is this? A gem? '
-      duration: 2
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: 'Why is it here ? '
-      duration: 2
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: Does it have some sort of purpose
-      duration: 2
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: 'Maybe I can find a use for it. Somewhere  '
-      duration: 2
-      wantedAngle: 0
-      characterAnimation: 0
-  - name: Kaizen found the book
-    IdNumber: 100081
-    Description: 
-    DialogueList:
-    - name: Kaizen
-      chracterID: 1
-      speech: 
-      duration: 0
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: 'The... Eter..ni..ty... that I have.. Long..ed.. For.. '
+      speech: "What\u2019s a television doing here? There is also to be a remote for
+        the TV\u2026 but it looks so weird\u2026"
       duration: 5
       wantedAngle: 0
       characterAnimation: 0
     - name: Kaizen
       chracterID: 1
-      speech: "The title sounds familiar\u2026 "
+      speech: "I doubt the television could work\u2026 there are no wires connecting
+        to the television"
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: Then of course the weird remote with only several buttons
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Turn on tv, trigger memory
+    IdNumber: 110131
+    Description: The player interacts with the remote and then the television (somehow)
+      turns on
+    DialogueList:
+    - name: Hifumi
+      chracterID: 3
+      speech: Kaizen can I watch some anime with you?
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Mikasa
+      chracterID: 4
+      speech: Hifumi, Kaizen make sure to not spend too much time on the television
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Hifumi
+      chracterID: 3
+      speech: "Alright, onee-san!! Come on, Kaizen it\u2019s one of your favorite
+        anime showcasing right now!"
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Hifumi
+      chracterID: 3
+      speech: Let me just take a seat and then we can properly watch together
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Memory scene finish
+    IdNumber: 110141
+    Description: Memory flashed back to Kaizen after interacting the tv
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: Time to go turn back, there does appear to be some other pathways
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: Although, I should just turn back
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Kaizen walks back to the entrance of this area
+    IdNumber: 110151
+    Description: Kaizen turn back and go to another path
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: What is going on!?
       duration: 2
       wantedAngle: 0
       characterAnimation: 0
     - name: Kaizen
       chracterID: 1
-      speech: "This girl...isn\u2019t she the mage that was searching for some kind
-        of power? "
-      duration: 5
+      speech: Why is there this giant stone remote blocking the path!?
+      duration: 3
       wantedAngle: 0
       characterAnimation: 0
     - name: Kaizen
       chracterID: 1
-      speech: 'It feels like i read this before.. '
+      speech: "Don\u2019t panic too much\u2026 there appears to be 2 buttons missing"
       duration: 3
       wantedAngle: 0
       characterAnimation: 0
-  - name: This is testing the bench
-    IdNumber: 8888
-    Description: 
+    - name: Kaizen
+      chracterID: 1
+      speech: "I need to go find those 2 buttons\u2026. Don\u2019t I\u2026 such a
+        pain"
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Finds the wrong button
+    IdNumber: 110161
+    Description: Kaizen looking for the missing buttons
     DialogueList:
-    - name: Erina
-      chracterID: 2
-      speech: Don't cry, don't cry
-      duration: 3
-      wantedAngle: 0
-      characterAnimation: 4
     - name: Kaizen
       chracterID: 1
-      speech: Umm...I'm not exactly crying...I...
-      duration: 5
+      speech: Does not match the remote
+      duration: 2
       wantedAngle: 0
       characterAnimation: 0
-    - name: Erina
-      chracterID: 2
-      speech: I'm here for you
-      duration: 3
-      wantedAngle: 0
-      characterAnimation: 4
     - name: Kaizen
       chracterID: 1
-      speech: I want to know the way home
-      duration: 4
+      speech: This definitely does not fit
+      duration: 2
       wantedAngle: 0
       characterAnimation: 0
-    - name: Erina
-      chracterID: 2
-      speech: Everthing will be alright
-      duration: 4
-      wantedAngle: 0
-      characterAnimation: 4
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
+  - name: 
+    IdNumber: 0
+    Description: 
+    DialogueList: []
 --- !u!114 &114198287318314870
 MonoBehaviour:
   m_ObjectHideFlags: 1
