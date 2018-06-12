@@ -147,7 +147,6 @@ public class CharacterControlScript : MonoBehaviour
         //Vertical rotation
         currentY = Camera.main.transform.eulerAngles.x + Input.GetAxis("Mouse Y") * cameraRotationSpeed * Time.deltaTime;
 
-        currentY = Mathf.Clamp(currentY, y_Angle_Min, y_Angle_Max);
         if (currentY <= 360.0 + y_Angle_Min && currentY > y_Angle_Max + 50.0f)
         {
             currentY = y_Angle_Min;
@@ -216,6 +215,7 @@ public class CharacterControlScript : MonoBehaviour
 		{
 			isGround = true;
 		}
+		Debug.Log(isGround);
 	}
 
 	void OnTriggerEnter(Collider col)

@@ -960,7 +960,7 @@ GameObject:
   - component: {fileID: 114381204785883452}
   - component: {fileID: 114789694930396354}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Kaizen
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3986,6 +3986,7 @@ MonoBehaviour:
   walkingSpeed: 5
   cameraRotationSpeed: 50
   isLerping: 0
+  currentY: 0
 --- !u!114 &114473332191230750
 MonoBehaviour:
   m_ObjectHideFlags: 1
