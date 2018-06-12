@@ -542,8 +542,21 @@ MonoBehaviour:
       characterAnimation: 0
     - name: Kaizen
       chracterID: 1
+      speech: "Actually I don\u2019t even know what my room looks like. I just knew
+        I was last\u2026there"
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
       speech: Where am I? I was in my room just a few moments ago
       duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: There is a faint light ahead
+      duration: 4
       wantedAngle: 0
       characterAnimation: 0
   - name: Kaizen walking while thinking
@@ -610,6 +623,12 @@ MonoBehaviour:
       duration: 2
       wantedAngle: 0
       characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "They disappear when I try to touch them\u2026 how odd"
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
   - name: Kaizen is at the edge of the platforming area
     IdNumber: 110081
     Description: Missing ground and floating grounds
@@ -618,6 +637,13 @@ MonoBehaviour:
       chracterID: 1
       speech: Woah!!
       duration: 1
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: The ground is missing and are those floating pieces of the ground, just
+        slowly moving?
+      duration: 5
       wantedAngle: 0
       characterAnimation: 0
     - name: Kaizen
@@ -653,6 +679,12 @@ MonoBehaviour:
     IdNumber: 110101
     Description: Blockage on Kaizen's path
     DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: There seems to be a blockage for that path
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
     - name: Kaizen
       chracterID: 1
       speech: I doubt I can get past it, even if I tried. Seems like I would have
@@ -694,6 +726,12 @@ MonoBehaviour:
       duration: 5
       wantedAngle: 0
       characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "I can try\u2026 to use it\u2026 but will it really work?"
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
   - name: Turn on tv, trigger memory
     IdNumber: 110131
     Description: The player interacts with the remote and then the television (somehow)
@@ -730,8 +768,20 @@ MonoBehaviour:
     DialogueList:
     - name: Kaizen
       chracterID: 1
+      speech: All of this felt so familiar and somewhat comforting
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: Like just hearing those two girls made me feel a little bit easy
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
       speech: Time to go turn back, there does appear to be some other pathways
-      duration: 3
+      duration: 5
       wantedAngle: 0
       characterAnimation: 0
     - name: Kaizen
@@ -785,58 +835,266 @@ MonoBehaviour:
       duration: 2
       wantedAngle: 0
       characterAnimation: 0
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
-  - name: 
-    IdNumber: 0
-    Description: 
-    DialogueList: []
+  - name: Enters the Platforming puzzle area
+    IdNumber: 110171
+    Description: Kaizen come to a platforming puzzle
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: By what I can see there is a proper button at the end of this area
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "Gulp, however, there appears to be more floating platforms\u2026 some
+        are even moving"
+      duration: 0
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Goes to the side area to check it out (if done so)
+    IdNumber: 110181
+    Description: Kaizen check on another side area
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: What is this thing?
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Green spirit
+      chracterID: 5
+      speech: Search inside of yourself, the peace to get through hard times
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "What peace inside? I don\u2019t get it\u2026"
+      duration: 0
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Gets the button and exits this platforming puzzle area
+    IdNumber: 110191
+    Description: Kaizen solved the puzzle and obtained the button while leaving the
+      platform area
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: "Yay, got through that crazy place\u2026 now time to get back to that
+        remote!"
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Goes back to the remote, places the buttons and interacts with the remote
+      one more time
+    IdNumber: 110201
+    Description: Kaizen put the missing button on to the remote and something happen
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: Great at least that is over
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "Somehow that path which was blocked before is cleared\u2026"
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: When he continues to the area that was no longer blocked
+    IdNumber: 110211
+    Description: Kaizen goes to the unlocked area
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: Why am I hearing? Water
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: I am starting to get a little thirsty from all this walking.
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "Water is flowing a little too fast, if I get any closer\u2026. I may
+        drown"
+      duration: 0
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: When he walks to a calmer (or a more open) area
+    IdNumber: 110221
+    Description: Kaizen wen to a free area
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: Is that a book?
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: Kaizen sits down on the ground, holding the book (maybe)
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: Eternity that I have longed for. Maybe I could take a little time off
+        my time worrying and read a little
+      duration: 6
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "The story starts off with this young female mage off to find\u2026."
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Kaizen gets up and sees a new path. When he turns to it there is a faint
+      light different than the sunlight shining normally
+    IdNumber: 110231
+    Description: Kaizen stand up and go to the next path
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: "What\u2019s that light?"
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: Wait a minute, where did that book go?
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "I could have sworn it was in my hands a moment ago\u2026"
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: Wait a minute, this place has streetlamps and wooden fences. What kind
+        of place is this?
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Move down the path to catch a glimpse of someone on a bench
+    IdNumber: 110241
+    Description: Kaizen walk down the path to peek who is on the bench
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: There is someone there
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Erina
+      chracterID: 2
+      speech: You seem sad
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "Sad, I don\u2019t feel sad"
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Erina
+      chracterID: 2
+      speech: "But you\u2019re crying. Don\u2019t feel sad, Kaizen"
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: Huh, I am not sad?
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Erina
+      chracterID: 2
+      speech: "I will be here for you. Don\u2019t feel sad or cry"
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "C\u2019mon I\u2019m not\u2026crying"
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Erina
+      chracterID: 2
+      speech: Hmm, you do seem a bit better. Well, see you later
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "Wait don\u2019t! She\u2019s gone\u2026 I did not even get a chance
+        to properly look at her\u2026"
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "Now where do I go\u2026?"
+      duration: 3
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: After Kaizen starts walking on the last path before the mirror
+    IdNumber: 110251
+    Description: Kaizen continue to the last path
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: There must be a way back if I find her again
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: That thing up ahead. What is it?
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "Also there is nowhere else to go from this place\u2026 guess I will
+        go and check that thing out"
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: If Kaizen interacts with the Mirror
+    IdNumber: 110261
+    Description: Kaizen come to a mirror and interact with it
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: "A mirror? It seems larger than even me\u2026"
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "It is my only option to go and what\u2026 touch it?"
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "What\u2019s happening!?"
+      duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
 --- !u!114 &114198287318314870
 MonoBehaviour:
   m_ObjectHideFlags: 1
