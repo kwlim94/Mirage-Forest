@@ -11,7 +11,7 @@ public class TempScript : MonoBehaviour
 
 	public void StartGame ()
 	{
-		SceneManagerScript.Instance.LoadScene(0);
+		SceneManagerScript.Instance.LoadScene(1);
 	}
 
 	public void Quit ()

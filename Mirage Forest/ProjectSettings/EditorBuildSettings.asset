@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Maps/Main Menu.unity
     guid: 37feee4629b95af4db95f1c83521655f
   - enabled: 1
-    path: Assets/Maps/Prologue.unity
-    guid: fbeaec4f451ada84bbd557da062dcc57
+    path: Assets/Maps/Chapter One.unity
+    guid: ee2acdec58bd4514ba52f88ac082333a
   - enabled: 1
     path: Assets/Maps/Settings Menu.unity
     guid: d4f3310ef99a19841bc4c8624e9ee318

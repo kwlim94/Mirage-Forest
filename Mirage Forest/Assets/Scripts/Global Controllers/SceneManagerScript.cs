@@ -23,6 +23,9 @@ public class SceneManagerScript : MonoBehaviour
 		case 0:
 			SceneManager.LoadScene("Prologue");
 			break;
+        case 1:
+            SceneManager.LoadScene("Chapter One");
+            break;
 		case 101:
 			SceneManager.LoadScene("Main Menu");
 			break;
