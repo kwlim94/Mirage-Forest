@@ -16,7 +16,7 @@ public class EventTriggerScript : MonoBehaviour
 
 	void Start ()
 	{
-		//GetComponent<MeshRenderer>().enabled = false;
+		GetComponent<MeshRenderer>().enabled = false;
 	}
 		
 	void OnTriggerEnter (Collider col)

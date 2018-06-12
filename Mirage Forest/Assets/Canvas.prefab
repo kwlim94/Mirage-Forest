@@ -396,11 +396,11 @@ MonoBehaviour:
   - {fileID: 114198287318314870}
   - {fileID: 114116443486326210}
   ItemList:
-  - name: Portal Gem
+  - name: Botton One
     itemImage: {fileID: 21300000, guid: 90527060f8a1b7641895575f8d7615ad, type: 3}
     itemID: 1
     itemType: 0
-  - name: Purple Mushroom
+  - name: Button Two
     itemImage: {fileID: 21300000, guid: f19917199f24f404ea14abfc977bff42, type: 3}
     itemID: 2
     itemType: 0
