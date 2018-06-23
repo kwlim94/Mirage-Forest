@@ -86,6 +86,11 @@ public class NarrativeControlScript : MonoBehaviour
 		this.toDeactivate = toDeactivate;
 	}
 
+//	public void LoadConversation (int IdNumber, GameObject toDeactivate, )
+//	{
+//
+//	}
+
 	public void NextPage ()
 	{
 		if (pageNumber < tempDialogueList.Count - 1)

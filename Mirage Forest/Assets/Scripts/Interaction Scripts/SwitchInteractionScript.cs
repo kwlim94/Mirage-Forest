@@ -20,9 +20,19 @@ public class ItemOnOffState
 public class SwitchInteractionScript : InteractionScript
 {
 	OnOffState globalOnOffState;
-	public GameObject globalThingsToActivate;
-	public GameObject globalThingsToDeactivate;
+	public List<GameObject> globalThingsToActivate;
+	public List<GameObject> globalThingsToDeactivate;
 	public List<ItemOnOffState> itemOnOffStateList;
+
+	bool firstTime;
+	public int storyIdBeforeActivate;
+	public int storyIdConditionNotMet;
+	public int storyIdAfterActivate;
+
+	public override void OtherStart()
+	{
+		firstTime = true;
+	}
 
 	public override void Interact ()
 	{
@@ -36,11 +46,21 @@ public class SwitchInteractionScript : InteractionScript
 			{
 				globalOnOffState = OnOffState.ON;
 
-				if(globalThingsToDeactivate != null)
-					globalThingsToDeactivate.SetActive(false);
-
+				if(globalThingsToDeactivate.Count > 0)
+				{
+					for (int i = 0; i < globalThingsToDeactivate.Count; i++)
+					{
+						globalThingsToDeactivate[i].SetActive(false);
+					}
+				}
+					
 				if(globalThingsToActivate != null)
-					globalThingsToActivate.SetActive(true);
+				{
+					for (int i = 0; i < globalThingsToActivate.Count; i++)
+					{
+						globalThingsToActivate[i].SetActive(true	);
+					}
+				}
 			}
 
 			//! When there is conditions needed to be met to turn on the switch
@@ -78,32 +98,75 @@ public class SwitchInteractionScript : InteractionScript
 				//! if all the conditions is met, then switch will turn on
 				if(globalOnOffState == OnOffState.ON)
 				{
-					if(globalThingsToDeactivate != null)
-						globalThingsToDeactivate.SetActive(false);
+					if(globalThingsToDeactivate.Count > 0)
+					{
+						for (int i = 0; i < globalThingsToDeactivate.Count; i++)
+						{
+							globalThingsToDeactivate[i].SetActive(false);
+						}
+					}
 
-					if(globalThingsToDeactivate != null)
-						globalThingsToActivate.SetActive(true);
+					if(globalThingsToActivate != null)
+					{
+						for (int i = 0; i < globalThingsToActivate.Count; i++)
+						{
+							globalThingsToActivate[i].SetActive(true);
+						}
+					}
 				}
 			}
 		}
 
-		//! Turning of the switch (Only available if there is no conditions to be met
+		//! Turning ofF the switch (Only available if there is no conditions to be met
 		else if(globalOnOffState == OnOffState.ON)
 		{
 			if(itemOnOffStateList.Count == 0)
 			{
 				globalOnOffState = OnOffState.OFF;
 
-				if(globalThingsToDeactivate != null)
-					globalThingsToDeactivate.SetActive(true);
+				if(globalThingsToDeactivate.Count > 0)
+				{
+					for (int i = 0; i < globalThingsToDeactivate.Count; i++)
+					{
+						globalThingsToDeactivate[i].SetActive(true);
+					}
+				}
 
 				if(globalThingsToActivate != null)
-					globalThingsToActivate.SetActive(false);
+				{
+					for (int i = 0; i < globalThingsToActivate.Count; i++)
+					{
+						globalThingsToActivate[i].SetActive(false);
+					}
+				}
 			}
 		}
-
-
+			
+		LoadStory();
 	}
 
+	void LoadStory()
+	{
+		if(globalOnOffState == OnOffState.OFF)
+		{
+			if(firstTime)
+			{
+				if(storyIdBeforeActivate != 0)
+					NarrativeControlScript.Instance.LoadConversation(storyIdBeforeActivate);
+				firstTime = false;
+			}
+			else
+			{
+				if(storyIdConditionNotMet != 0)
+					NarrativeControlScript.Instance.LoadConversation(storyIdConditionNotMet);
+			}
+		}
+		else if(globalOnOffState == OnOffState.ON)
+		{
+			if(storyIdAfterActivate != 0)
+				NarrativeControlScript.Instance.LoadConversation(storyIdAfterActivate);
+			
+		}
+	}
 
 }

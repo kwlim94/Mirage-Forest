@@ -20,9 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4895402085344996}
   - component: {fileID: 114986022309109712}
+  - component: {fileID: 114552643311984364}
+  - component: {fileID: 135169684053137902}
   m_Layer: 0
   m_Name: Spirits_Green
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,6 +166,18 @@ Transform:
   m_Father: {fileID: 4895402085344996}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114552643311984364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143496291246692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2541f5e3211db04493fa350bd224c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 5
 --- !u!114 &114986022309109712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +189,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ac58ff0e3cc194099d66cf0b2c68b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   isInteractable: 0
+  idNumber: 0
+--- !u!135 &135169684053137902
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143496291246692}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!198 &198085171949846106
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -326,7 +354,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.2, g: 0.59607846, b: 0.12156863, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3687,7 +3715,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.95821506, g: 1, b: 0.24264705, a: 1}
+      maxColor: {r: 0.2, g: 0.59607846, b: 0.12156863, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -7048,7 +7076,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9322613, g: 1, b: 0.2296172, a: 1}
+      maxColor: {r: 0.20172189, g: 0.5955882, b: 0.12262111, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10408,8 +10436,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0.93103445, b: 0, a: 0.197}
-      maxColor: {r: 0.862069, g: 1, b: 0, a: 1}
+      minColor: {r: 0.2, g: 0.59607846, b: 0.12156863, a: 0.222}
+      maxColor: {r: 0.2, g: 0.59607846, b: 0.12156863, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

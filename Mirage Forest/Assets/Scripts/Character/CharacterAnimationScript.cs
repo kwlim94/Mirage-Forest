@@ -27,7 +27,7 @@ public class CharacterAnimationScript : MonoBehaviour
 
 	public void ChangeAnimation (CharacterAnimation charaAnim)
 	{
-		if(charaAnim != characterAnimation && !anim.IsInTransition(0))
+		if(charaAnim != characterAnimation /*&& !anim.IsInTransition(0)*/)
 		{
 			characterAnimation = charaAnim;
 			PlayAnimation ();
@@ -51,7 +51,10 @@ public class CharacterAnimationScript : MonoBehaviour
 			anim.Play("Stand Up");
 			break;
 		case CharacterAnimation.SIT_ON_CHAIR:
-			anim.Play("Sit");
+			anim.Play("Sit On Chair");
+			break;
+		case CharacterAnimation.SIT_ON_GROUND:
+			anim.Play("Sit On Ground");
 			break;
 		}
 	}

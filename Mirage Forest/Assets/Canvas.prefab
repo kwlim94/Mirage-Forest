@@ -733,7 +733,7 @@ MonoBehaviour:
       wantedAngle: 0
       characterAnimation: 0
   - name: Turn on tv, trigger memory
-    IdNumber: 110131
+    IdNumber: 110122
     Description: The player interacts with the remote and then the television (somehow)
       turns on
     DialogueList:
@@ -742,7 +742,7 @@ MonoBehaviour:
       speech: Kaizen can I watch some anime with you?
       duration: 3
       wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 5
     - name: Mikasa
       chracterID: 4
       speech: Hifumi, Kaizen make sure to not spend too much time on the television
@@ -755,15 +755,15 @@ MonoBehaviour:
         anime showcasing right now!"
       duration: 5
       wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 5
     - name: Hifumi
       chracterID: 3
       speech: Let me just take a seat and then we can properly watch together
       duration: 3
       wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 5
   - name: Memory scene finish
-    IdNumber: 110141
+    IdNumber: 110123
     Description: Memory flashed back to Kaizen after interacting the tv
     DialogueList:
     - name: Kaizen
@@ -820,7 +820,7 @@ MonoBehaviour:
       wantedAngle: 0
       characterAnimation: 0
   - name: Finds the wrong button
-    IdNumber: 110161
+    IdNumber: 110152
     Description: Kaizen looking for the missing buttons
     DialogueList:
     - name: Kaizen
@@ -888,7 +888,7 @@ MonoBehaviour:
       characterAnimation: 0
   - name: Goes back to the remote, places the buttons and interacts with the remote
       one more time
-    IdNumber: 110201
+    IdNumber: 110153
     Description: Kaizen put the missing button on to the remote and something happen
     DialogueList:
     - name: Kaizen
@@ -941,23 +941,23 @@ MonoBehaviour:
       speech: Kaizen sits down on the ground, holding the book (maybe)
       duration: 5
       wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 5
     - name: Kaizen
       chracterID: 1
       speech: Eternity that I have longed for. Maybe I could take a little time off
         my time worrying and read a little
       duration: 6
       wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 5
     - name: Kaizen
       chracterID: 1
       speech: "The story starts off with this young female mage off to find\u2026."
       duration: 5
       wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 5
   - name: Kaizen gets up and sees a new path. When he turns to it there is a faint
       light different than the sunlight shining normally
-    IdNumber: 110231
+    IdNumber: 110222
     Description: Kaizen stand up and go to the next path
     DialogueList:
     - name: Kaizen
