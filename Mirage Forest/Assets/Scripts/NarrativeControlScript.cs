@@ -13,6 +13,7 @@ public class NarrativeControlScript : MonoBehaviour
 	List<Dialogue> tempDialogueList;
 	float timeElasped;
 	GameObject toDeactivate;
+    public bool isCompleted_L;
 
 	public static NarrativeControlScript Instance {get; set;}
 
@@ -55,10 +56,11 @@ public class NarrativeControlScript : MonoBehaviour
 	}
 		
 
-	public void LoadConversation (int IdNumber)
+	public void LoadConversation (int IdNumber, ref bool isCompleted)
 	{
 		toDeactivate = null;
 		speechBubble.gameObject.SetActive(true);
+        //isCompleted_L = false;
 
 		List<NarrativeDatabase> tempList = NarrativeDatabaseScript.Instance.NarrativeDatabaseList;
 		
@@ -80,9 +82,9 @@ public class NarrativeControlScript : MonoBehaviour
 		NextPage ();
 	}
 
-	public void LoadConversation (int IdNumber, GameObject toDeactivate)
+	public void LoadConversation (int IdNumber, GameObject toDeactivate, ref bool isCompleted)
 	{
-		LoadConversation (IdNumber);
+		LoadConversation (IdNumber, ref isCompleted);
 		this.toDeactivate = toDeactivate;
 	}
 
@@ -116,7 +118,8 @@ public class NarrativeControlScript : MonoBehaviour
 		else
 		{
 			characterList[0].GetComponent<CharacterControlScript>().enabled = true;
-			speechBubble.gameObject.SetActive(false);
+            speechBubble.gameObject.SetActive(false);
+            isCompleted_L = true;
 			if(toDeactivate != null)
 			{
 				toDeactivate.SetActive(false);
