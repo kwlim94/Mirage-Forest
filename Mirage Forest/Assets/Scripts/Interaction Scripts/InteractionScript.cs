@@ -7,12 +7,14 @@ public class InteractionScript : MonoBehaviour
 	public GameObject player;
 	public bool isInteractable;
 	public int idNumber;
+    public bool isCompleted;
 
-	void Start ()
+    void Start ()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 		isInteractable = false;
-		OtherStart();
+        isCompleted = false;
+        OtherStart();
 	}
 
 	void Update ()
@@ -21,9 +23,12 @@ public class InteractionScript : MonoBehaviour
 		{
 			Interact ();
 		}
+
+        OtherUpdate();
 	}
 
 	public virtual void OtherStart(){}
+    public virtual void OtherUpdate(){}
 
 	public virtual void Interact ()
 	{

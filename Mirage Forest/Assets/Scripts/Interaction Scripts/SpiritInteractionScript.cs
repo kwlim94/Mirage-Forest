@@ -8,7 +8,7 @@ public class SpiritInteractionScript : InteractionScript
 	public override void Interact ()
 	{
 		base.Interact ();
-		NarrativeControlScript.Instance.LoadConversation(idNumber, gameObject);
+		NarrativeControlScript.Instance.LoadConversation(idNumber, gameObject, ref isCompleted);
 	}
 
 

@@ -18,10 +18,12 @@ public class EventTriggerScript : MonoBehaviour
 	public List<int> nextConversations; //! if there is a conversation right after this
 	public int nextScene; //! if there is a scene change right after this
 	public bool isActivatedThingsToBeDeactivated;
+    public bool isCompleted;
 
 	void Start ()
 	{
 		GetComponent<MeshRenderer>().enabled = false;
+        isCompleted = false;
 	}
 		
 	void OnTriggerEnter (Collider col)
@@ -47,13 +49,13 @@ public class EventTriggerScript : MonoBehaviour
 				thingsToActivate[0].SetActive(true);
 				thingsToActivate.RemoveAt(0);
 				if(isActivatedThingsToBeDeactivated)
-					NarrativeControlScript.Instance.LoadConversation (idNumber, thingsToActivate[0]);
+					NarrativeControlScript.Instance.LoadConversation (idNumber, thingsToActivate[0], ref isCompleted);
 				else
-					NarrativeControlScript.Instance.LoadConversation (idNumber);
+					NarrativeControlScript.Instance.LoadConversation (idNumber, ref isCompleted);
 			}
 			else
 			{
-				NarrativeControlScript.Instance.LoadConversation (idNumber);
+				NarrativeControlScript.Instance.LoadConversation (idNumber, ref isCompleted);
 			}
 
 		

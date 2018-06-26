@@ -24,19 +24,19 @@ public class PortalInteractionScript : InteractionScript
 			{
 				if(InventoryScript.Instance.inventoryList[currentIndex] == 1)
 				{
-					NarrativeControlScript.Instance.LoadConversation(100063);
+					NarrativeControlScript.Instance.LoadConversation(100063, ref isCompleted);
 					transform.GetChild(1).gameObject.SetActive(true);
 					portalState = PortalState.ON;
 					InventoryScript.Instance.RemoveItem(currentIndex);
 				}
 				else
 				{
-					NarrativeControlScript.Instance.LoadConversation(100062);
+					NarrativeControlScript.Instance.LoadConversation(100062, ref isCompleted);
 				}
 			}
 			else
 			{
-				NarrativeControlScript.Instance.LoadConversation(100062);
+				NarrativeControlScript.Instance.LoadConversation(100062, ref isCompleted);
 			}
 		}
 	}

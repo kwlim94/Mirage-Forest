@@ -36,6 +36,10 @@ public class CharacterAnimationScript : MonoBehaviour
 
 	void PlayAnimation ()
 	{
+        if(anim == null)
+        {
+            anim = model.GetComponent<Animator>();
+        }
 		switch (characterAnimation)
 		{
 		case CharacterAnimation.IDLE:

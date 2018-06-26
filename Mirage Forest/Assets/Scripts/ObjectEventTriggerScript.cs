@@ -11,63 +11,78 @@ public class ObjectEventTriggerScript: InteractionScript
 	public List<bool> nextIsActivatedThingsToBeDeactivated;
 	public int nextScene; //! if there is a scene change right after this
 	public bool isActivatedThingsToBeDeactivated;
+    bool isInteract;
 
 	public override void OtherStart()
 	{
-		
+        isInteract = false;
 	}
 
-    public async override void Interact ()
+    public override void Interact ()
 	{
-		if(thingsToDeactivate.Count > 0)
+
+        NarrativeControlScript.Instance.isCompleted_L = false;
+
+        if (thingsToDeactivate.Count > 0)
 		{
 			thingsToDeactivate[0].SetActive(false);
 			thingsToDeactivate.RemoveAt(0);
 		}
 
-        Task task;
 
         if (thingsToActivate.Count > 0)
         {
             thingsToActivate[0].SetActive(true);
             if (isActivatedThingsToBeDeactivated)
             {
-                task = Task.Factory.StartNew(() =>
-                NarrativeControlScript.Instance.LoadConversation(idNumber, thingsToActivate[0]) );
+                NarrativeControlScript.Instance.LoadConversation(idNumber, thingsToActivate[0], ref isCompleted);
             }
             else
             {
-                task = Task.Factory.StartNew(() =>
-                NarrativeControlScript.Instance.LoadConversation(idNumber) );
+                NarrativeControlScript.Instance.LoadConversation(idNumber, ref isCompleted);
             }
         }
         else
         {
-            task = Task.Factory.StartNew(() =>
-            NarrativeControlScript.Instance.LoadConversation(idNumber) );
+            NarrativeControlScript.Instance.LoadConversation(idNumber, ref isCompleted);
         }
+
+        isInteract = true;
         //await LoadStory();
         //task.Wait();
 
-        if (thingsToActivate.Count > 0)
-          thingsToActivate.RemoveAt(0);
 
-        if (nextConversations.Count > 0)
-		{
-			GameObject newGameObject = Instantiate(new GameObject(), this.transform.position, Quaternion.identity);
-			newGameObject.AddComponent<ObjectEventTriggerScript>();
-			ObjectEventTriggerScript newScript = gameObject.GetComponent<ObjectEventTriggerScript>();
-			newScript.idNumber = nextConversations[0];
-			nextConversations.RemoveAt(0);
-			newScript.nextConversations = nextConversations;
-			newScript.isActivatedThingsToBeDeactivated = nextIsActivatedThingsToBeDeactivated[0];
-			nextIsActivatedThingsToBeDeactivated.RemoveAt(0);
-			newScript.nextIsActivatedThingsToBeDeactivated = nextIsActivatedThingsToBeDeactivated;
-			newScript.thingsToDeactivate = thingsToDeactivate;
-			newScript.thingsToActivate = thingsToActivate;
-			newScript.Interact();
-		}
-	}
+    }
+
+    public override void OtherUpdate()
+    {
+        if (NarrativeControlScript.Instance.isCompleted_L && isInteract)
+        {
+            Debug.Log("New Story");
+            if (thingsToActivate.Count > 0)
+                thingsToActivate.RemoveAt(0);
+
+            if (nextConversations.Count > 0)
+            {
+                GameObject newGameObject = Instantiate(new GameObject(), this.transform.position, Quaternion.identity);
+                newGameObject.AddComponent<ObjectEventTriggerScript>();
+                ObjectEventTriggerScript newScript = gameObject.GetComponent<ObjectEventTriggerScript>();
+                newScript.idNumber = nextConversations[0];
+                nextConversations.RemoveAt(0);
+                newScript.nextConversations = nextConversations;
+                if (nextIsActivatedThingsToBeDeactivated.Count > 0)
+                {
+                    newScript.isActivatedThingsToBeDeactivated = nextIsActivatedThingsToBeDeactivated[0];
+                    nextIsActivatedThingsToBeDeactivated.RemoveAt(0);
+                }
+                newScript.nextIsActivatedThingsToBeDeactivated = nextIsActivatedThingsToBeDeactivated;
+                newScript.thingsToDeactivate = thingsToDeactivate;
+                newScript.thingsToActivate = thingsToActivate;
+                NarrativeControlScript.Instance.isCompleted_L = false;
+                newScript.Interact();
+            }
+        }
+    }
 
     /*
     async Task LoadStory()
@@ -90,4 +105,5 @@ public class ObjectEventTriggerScript: InteractionScript
         }
     }
     */
+
 }

@@ -152,19 +152,19 @@ public class SwitchInteractionScript : InteractionScript
 			if(firstTime)
 			{
 				if(storyIdBeforeActivate != 0)
-					NarrativeControlScript.Instance.LoadConversation(storyIdBeforeActivate);
+					NarrativeControlScript.Instance.LoadConversation(storyIdBeforeActivate, ref isCompleted);
 				firstTime = false;
 			}
 			else
 			{
 				if(storyIdConditionNotMet != 0)
-					NarrativeControlScript.Instance.LoadConversation(storyIdConditionNotMet);
+					NarrativeControlScript.Instance.LoadConversation(storyIdConditionNotMet, ref isCompleted);
 			}
 		}
 		else if(globalOnOffState == OnOffState.ON)
 		{
 			if(storyIdAfterActivate != 0)
-				NarrativeControlScript.Instance.LoadConversation(storyIdAfterActivate);
+				NarrativeControlScript.Instance.LoadConversation(storyIdAfterActivate, ref isCompleted);
 			
 		}
 	}
