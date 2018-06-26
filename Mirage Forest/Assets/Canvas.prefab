@@ -989,6 +989,12 @@ MonoBehaviour:
     IdNumber: 110241
     Description: Kaizen walk down the path to peek who is on the bench
     DialogueList:
+    - name: Erina
+      chracterID: 2
+      speech: 
+      duration: 0
+      wantedAngle: 0
+      characterAnimation: 4
     - name: Kaizen
       chracterID: 1
       speech: There is someone there
@@ -1000,7 +1006,7 @@ MonoBehaviour:
       speech: You seem sad
       duration: 2
       wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 4
     - name: Kaizen
       chracterID: 1
       speech: "Sad, I don\u2019t feel sad"
@@ -1012,7 +1018,7 @@ MonoBehaviour:
       speech: "But you\u2019re crying. Don\u2019t feel sad, Kaizen"
       duration: 3
       wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 4
     - name: Kaizen
       chracterID: 1
       speech: Huh, I am not sad?
@@ -1024,7 +1030,7 @@ MonoBehaviour:
       speech: "I will be here for you. Don\u2019t feel sad or cry"
       duration: 4
       wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 4
     - name: Kaizen
       chracterID: 1
       speech: "C\u2019mon I\u2019m not\u2026crying"
@@ -1036,20 +1042,7 @@ MonoBehaviour:
       speech: Hmm, you do seem a bit better. Well, see you later
       duration: 4
       wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: "Wait don\u2019t! She\u2019s gone\u2026 I did not even get a chance
-        to properly look at her\u2026"
-      duration: 5
-      wantedAngle: 0
-      characterAnimation: 0
-    - name: Kaizen
-      chracterID: 1
-      speech: "Now where do I go\u2026?"
-      duration: 3
-      wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 4
   - name: After Kaizen starts walking on the last path before the mirror
     IdNumber: 110251
     Description: Kaizen continue to the last path
@@ -1093,6 +1086,23 @@ MonoBehaviour:
       chracterID: 1
       speech: "What\u2019s happening!?"
       duration: 2
+      wantedAngle: 0
+      characterAnimation: 0
+  - name: Erina dissapears from the bench
+    IdNumber: 110242
+    Description: 
+    DialogueList:
+    - name: Kaizen
+      chracterID: 1
+      speech: "Wait don\u2019t! She\u2019s gone\u2026 I did not even get a chance
+        to properly look at her\u2026"
+      duration: 5
+      wantedAngle: 0
+      characterAnimation: 0
+    - name: Kaizen
+      chracterID: 1
+      speech: "Now where do I go\u2026?"
+      duration: 3
       wantedAngle: 0
       characterAnimation: 0
 --- !u!114 &114198287318314870
@@ -1258,6 +1268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechBubble: {fileID: 114721126849208384}
+  isCompleted_L: 0
 --- !u!114 &114468702303019008
 MonoBehaviour:
   m_ObjectHideFlags: 1

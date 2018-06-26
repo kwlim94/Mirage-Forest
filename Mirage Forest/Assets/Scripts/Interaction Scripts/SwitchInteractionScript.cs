@@ -34,116 +34,120 @@ public class SwitchInteractionScript : InteractionScript
 		firstTime = true;
 	}
 
-	public override void Interact ()
-	{
-		base.Interact ();
+    public override void Interact()
+    {
+        base.Interact();
+        LoadStory();
 
-		//! Turning on the switch (There is two ways to turn on the switch)
-		if(globalOnOffState == OnOffState.OFF)
-		{
-			//! When there is NO CONDITIONS needed to be met to turn on the switch
-			if(itemOnOffStateList.Count == 0)
-			{
-				globalOnOffState = OnOffState.ON;
+        //! Turning on the switch (There is two ways to turn on the switch)
+        if (globalOnOffState == OnOffState.OFF)
+        {
+            //! When there is NO CONDITIONS needed to be met to turn on the switch
+            if (itemOnOffStateList.Count == 0)
+            {
+                globalOnOffState = OnOffState.ON;
 
-				if(globalThingsToDeactivate.Count > 0)
-				{
-					for (int i = 0; i < globalThingsToDeactivate.Count; i++)
-					{
-						globalThingsToDeactivate[i].SetActive(false);
-					}
-				}
-					
-				if(globalThingsToActivate != null)
-				{
-					for (int i = 0; i < globalThingsToActivate.Count; i++)
-					{
-						globalThingsToActivate[i].SetActive(true	);
-					}
-				}
-			}
+                if (globalThingsToDeactivate.Count > 0)
+                {
+                    for (int i = 0; i < globalThingsToDeactivate.Count; i++)
+                    {
+                        globalThingsToDeactivate[i].SetActive(false);
+                    }
+                }
 
-			//! When there is conditions needed to be met to turn on the switch
-			else
-			{
-				//! Turning on a particular switch
-				for(int i = 0; i < itemOnOffStateList.Count; i++)
-				{
-					if(InventoryScript.Instance.inventoryList[InventoryScript.currentIndex] == itemOnOffStateList[i].idNumber)
-					{
-						itemOnOffStateList[i].onOffState = OnOffState.ON;
+                if (globalThingsToActivate != null)
+                {
+                    for (int i = 0; i < globalThingsToActivate.Count; i++)
+                    {
+                        globalThingsToActivate[i].SetActive(true);
+                    }
+                }
+            }
 
-						if(itemOnOffStateList[i].thingsToDeactivate != null)
-							itemOnOffStateList[i].thingsToDeactivate.SetActive(false);
+            //! When there is conditions needed to be met to turn on the switch
+            else
+            {
+                //! Turning on a particular switch
+                for (int i = 0; i < itemOnOffStateList.Count; i++)
+                {
+                    if(InventoryScript.Instance.inventoryList.Count > 0)
+                    {
+                        if (InventoryScript.Instance.inventoryList[InventoryScript.currentIndex] == itemOnOffStateList[i].idNumber)
+                        {
+                            itemOnOffStateList[i].onOffState = OnOffState.ON;
 
-						if(itemOnOffStateList[i].thingsToActivate != null)
-							itemOnOffStateList[i].thingsToActivate.SetActive(true);
+                            if (itemOnOffStateList[i].thingsToDeactivate != null)
+                                itemOnOffStateList[i].thingsToDeactivate.SetActive(false);
 
-						InventoryScript.Instance.RemoveItem(InventoryScript.currentIndex);
-						break;
-					}
-				}
+                            if (itemOnOffStateList[i].thingsToActivate != null)
+                                itemOnOffStateList[i].thingsToActivate.SetActive(true);
 
-				globalOnOffState = OnOffState.ON;
+                            InventoryScript.Instance.RemoveItem(InventoryScript.currentIndex);
+                            break;
+                        }
+                    }
+                    
+                }
 
-				//! Checking if all the elements in ON state
-				for(int i = 0; i < itemOnOffStateList.Count; i++)
-				{
-					if(itemOnOffStateList[i].onOffState == OnOffState.OFF)
-					{
-						globalOnOffState = OnOffState.OFF;
-					}
-				}
+                globalOnOffState = OnOffState.ON;
 
-				//! if all the conditions is met, then switch will turn on
-				if(globalOnOffState == OnOffState.ON)
-				{
-					if(globalThingsToDeactivate.Count > 0)
-					{
-						for (int i = 0; i < globalThingsToDeactivate.Count; i++)
-						{
-							globalThingsToDeactivate[i].SetActive(false);
-						}
-					}
+                //! Checking if all the elements in ON state
+                for (int i = 0; i < itemOnOffStateList.Count; i++)
+                {
+                    if (itemOnOffStateList[i].onOffState == OnOffState.OFF)
+                    {
+                        globalOnOffState = OnOffState.OFF;
+                    }
+                }
 
-					if(globalThingsToActivate != null)
-					{
-						for (int i = 0; i < globalThingsToActivate.Count; i++)
-						{
-							globalThingsToActivate[i].SetActive(true);
-						}
-					}
-				}
-			}
-		}
+                //! if all the conditions is met, then switch will turn on
+                if (globalOnOffState == OnOffState.ON)
+                {
+                    if (globalThingsToDeactivate.Count > 0)
+                    {
+                        for (int i = 0; i < globalThingsToDeactivate.Count; i++)
+                        {
+                            globalThingsToDeactivate[i].SetActive(false);
+                        }
+                    }
 
-		//! Turning ofF the switch (Only available if there is no conditions to be met
-		else if(globalOnOffState == OnOffState.ON)
-		{
-			if(itemOnOffStateList.Count == 0)
-			{
-				globalOnOffState = OnOffState.OFF;
+                    if (globalThingsToActivate != null)
+                    {
+                        for (int i = 0; i < globalThingsToActivate.Count; i++)
+                        {
+                            globalThingsToActivate[i].SetActive(true);
+                        }
+                    }
+                }
+            }
+        }
 
-				if(globalThingsToDeactivate.Count > 0)
-				{
-					for (int i = 0; i < globalThingsToDeactivate.Count; i++)
-					{
-						globalThingsToDeactivate[i].SetActive(true);
-					}
-				}
+        //! Turning ofF the switch (Only available if there is no conditions to be met
+        else if (globalOnOffState == OnOffState.ON)
+        {
+            if (itemOnOffStateList.Count == 0)
+            {
+                globalOnOffState = OnOffState.OFF;
 
-				if(globalThingsToActivate != null)
-				{
-					for (int i = 0; i < globalThingsToActivate.Count; i++)
-					{
-						globalThingsToActivate[i].SetActive(false);
-					}
-				}
-			}
-		}
-			
-		LoadStory();
-	}
+                if (globalThingsToDeactivate.Count > 0)
+                {
+                    for (int i = 0; i < globalThingsToDeactivate.Count; i++)
+                    {
+                        globalThingsToDeactivate[i].SetActive(true);
+                    }
+                }
+
+                if (globalThingsToActivate != null)
+                {
+                    for (int i = 0; i < globalThingsToActivate.Count; i++)
+                    {
+                        globalThingsToActivate[i].SetActive(false);
+                    }
+                }
+            }
+        }
+
+    }
 
 	void LoadStory()
 	{

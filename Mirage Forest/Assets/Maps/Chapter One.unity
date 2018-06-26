@@ -6708,6 +6708,7 @@ MonoBehaviour:
   nextConversations: 
   nextScene: 0
   isActivatedThingsToBeDeactivated: 0
+  nextIsActivatedThingsToBeDeactivated: 
   isCompleted: 0
 --- !u!23 &226830355
 MeshRenderer:
@@ -6991,6 +6992,7 @@ MonoBehaviour:
   nextConversations: 
   nextScene: 0
   isActivatedThingsToBeDeactivated: 0
+  nextIsActivatedThingsToBeDeactivated: 
   isCompleted: 0
 --- !u!23 &248901766
 MeshRenderer:
@@ -16710,6 +16712,7 @@ MonoBehaviour:
   nextConversations: 
   nextScene: 0
   isActivatedThingsToBeDeactivated: 0
+  nextIsActivatedThingsToBeDeactivated: 
   isCompleted: 0
 --- !u!23 &703295832
 MeshRenderer:
@@ -17289,6 +17292,7 @@ MonoBehaviour:
   nextConversations: 
   nextScene: 0
   isActivatedThingsToBeDeactivated: 0
+  nextIsActivatedThingsToBeDeactivated: 
   isCompleted: 0
 --- !u!23 &716479716
 MeshRenderer:
@@ -18572,9 +18576,10 @@ MonoBehaviour:
   thingsToActivate:
   - {fileID: 2094718674}
   thingsToDeactivate: []
-  nextConversations: 
+  nextConversations: a2ae0100
   nextScene: 0
   isActivatedThingsToBeDeactivated: 1
+  nextIsActivatedThingsToBeDeactivated: 
   isCompleted: 0
 --- !u!23 &760150086
 MeshRenderer:
@@ -28277,6 +28282,7 @@ MonoBehaviour:
   nextConversations: 
   nextScene: 0
   isActivatedThingsToBeDeactivated: 0
+  nextIsActivatedThingsToBeDeactivated: 
   isCompleted: 0
 --- !u!23 &1088807194
 MeshRenderer:
@@ -29142,6 +29148,7 @@ MonoBehaviour:
   nextConversations: 
   nextScene: 0
   isActivatedThingsToBeDeactivated: 0
+  nextIsActivatedThingsToBeDeactivated: 
   isCompleted: 0
 --- !u!23 &1118870159
 MeshRenderer:
@@ -34453,6 +34460,7 @@ MonoBehaviour:
   nextConversations: 
   nextScene: 0
   isActivatedThingsToBeDeactivated: 0
+  nextIsActivatedThingsToBeDeactivated: 
   isCompleted: 0
 --- !u!23 &1287806061
 MeshRenderer:
@@ -36095,6 +36103,7 @@ MonoBehaviour:
   nextConversations: 
   nextScene: 0
   isActivatedThingsToBeDeactivated: 0
+  nextIsActivatedThingsToBeDeactivated: 
   isCompleted: 0
 --- !u!23 &1325993730
 MeshRenderer:
@@ -37142,6 +37151,7 @@ MonoBehaviour:
   nextConversations: 
   nextScene: 0
   isActivatedThingsToBeDeactivated: 0
+  nextIsActivatedThingsToBeDeactivated: 
   isCompleted: 0
 --- !u!23 &1368289136
 MeshRenderer:
@@ -38428,6 +38438,7 @@ MonoBehaviour:
   nextConversations: 8eae0100
   nextScene: 0
   isActivatedThingsToBeDeactivated: 0
+  nextIsActivatedThingsToBeDeactivated: 
   isCompleted: 0
 --- !u!23 &1400509641
 MeshRenderer:
@@ -45661,6 +45672,7 @@ MonoBehaviour:
   nextConversations: 
   nextScene: 0
   isActivatedThingsToBeDeactivated: 0
+  nextIsActivatedThingsToBeDeactivated: 
   isCompleted: 0
 --- !u!23 &1628787809
 MeshRenderer:
