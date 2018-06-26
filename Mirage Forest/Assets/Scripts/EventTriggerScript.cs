@@ -54,6 +54,7 @@ public class EventTriggerScript : MonoBehaviour
 				newScript.thingsToDeactivate = thingsToDeactivate;
 				newScript.thingsToActivate = thingsToActivate;
 				NarrativeControlScript.Instance.isCompleted_L = false;
+                newScript.isInteract = true;
 				newScript.TriggerCollisionAction();
 			}
 		}
@@ -80,8 +81,7 @@ public class EventTriggerScript : MonoBehaviour
 
 			if(thingsToActivate.Count > 0)
 			{
-				thingsToActivate[0].SetActive(true);
-				thingsToActivate.RemoveAt(0);
+                thingsToActivate[0].SetActive(true);
 				if(isActivatedThingsToBeDeactivated)
 					NarrativeControlScript.Instance.LoadConversation (idNumber, thingsToActivate[0], ref isCompleted);
 				else
