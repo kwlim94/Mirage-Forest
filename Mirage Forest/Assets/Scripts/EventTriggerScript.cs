@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public enum TriggerType
@@ -21,6 +20,7 @@ public class EventTriggerScript : MonoBehaviour
 	public List<bool> nextIsActivatedThingsToBeDeactivated;
     public bool isCompleted;
 	bool isInteract;
+    bool isTriggerType = true;
 
 	void Start ()
 	{
@@ -41,7 +41,7 @@ public class EventTriggerScript : MonoBehaviour
 			{
 				GameObject newGameObject = Instantiate(new GameObject(), this.transform.position, Quaternion.identity);
 				newGameObject.AddComponent<EventTriggerScript>();
-				EventTriggerScript newScript = gameObject.GetComponent<EventTriggerScript>();
+                EventTriggerScript newScript = gameObject.GetComponent<EventTriggerScript>();
 				newScript.idNumber = nextConversations[0];
 				nextConversations.RemoveAt(0);
 				newScript.nextConversations = nextConversations;
@@ -53,8 +53,8 @@ public class EventTriggerScript : MonoBehaviour
 				newScript.nextIsActivatedThingsToBeDeactivated = nextIsActivatedThingsToBeDeactivated;
 				newScript.thingsToDeactivate = thingsToDeactivate;
 				newScript.thingsToActivate = thingsToActivate;
-				NarrativeControlScript.Instance.isCompleted_L = false;
-                newScript.isInteract = true;
+                newScript.isTriggerType = false;
+                NarrativeControlScript.Instance.isCompleted_L = false;
 				newScript.TriggerCollisionAction();
 			}
 		}
@@ -62,7 +62,7 @@ public class EventTriggerScript : MonoBehaviour
 
 	void OnTriggerEnter (Collider col)
 	{
-		if(col.tag == "Player" && !isInteract)
+		if(col.tag == "Player" && !isInteract && isTriggerType)
 		{
 			TriggerCollisionAction();
 		}
@@ -70,7 +70,8 @@ public class EventTriggerScript : MonoBehaviour
 
 	public void TriggerCollisionAction()
 	{
-		isInteract = true;
+        NarrativeControlScript.Instance.isCompleted_L = false;
+        isInteract = true;
 		if(triggerType == TriggerType.STORY)
 		{
 			if(thingsToDeactivate.Count > 0)

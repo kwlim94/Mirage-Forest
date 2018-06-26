@@ -10,7 +10,9 @@ public class NarrativeControlScript : MonoBehaviour
 	int pageNumber;
 	int currentCharacterIndex;
 	public Image speechBubble;
+    public Image picture;
 	List<Dialogue> tempDialogueList;
+    public List<Sprite> pictureList;
 	float timeElasped;
 	GameObject toDeactivate;
     public bool isCompleted_L;
@@ -34,10 +36,10 @@ public class NarrativeControlScript : MonoBehaviour
 	{
 		if(speechBubble.gameObject.activeSelf)
 		{
-//			if(Input.GetMouseButtonDown(0))
-//			{
-//				NextPage ();
-//			}
+			if(Input.GetMouseButtonDown(0))
+			{
+				NextPage ();
+			}
 				
 			if(timeElasped > tempDialogueList[pageNumber].duration)
 			{
@@ -59,10 +61,11 @@ public class NarrativeControlScript : MonoBehaviour
 	public void LoadConversation (int IdNumber, ref bool isCompleted)
 	{
 		toDeactivate = null;
-		speechBubble.gameObject.SetActive(true);
+        speechBubble.gameObject.SetActive(true);
+        picture.gameObject.SetActive(true);
         //isCompleted_L = false;
 
-		List<NarrativeDatabase> tempList = NarrativeDatabaseScript.Instance.NarrativeDatabaseList;
+        List<NarrativeDatabase> tempList = NarrativeDatabaseScript.Instance.NarrativeDatabaseList;
 		
 		FindCharacters ();
 		characterList[0].GetComponent<CharacterControlScript>().enabled = false;
@@ -101,7 +104,10 @@ public class NarrativeControlScript : MonoBehaviour
 			speechBubble.transform.GetChild(0).GetComponent<Text>().text
 			= tempDialogueList[pageNumber].speech;
 
-			for(int i = 0; i < characterList.Count; i++)
+            speechBubble.transform.GetChild(1).GetChild(0).GetComponent<Text>().text
+            = tempDialogueList[pageNumber].name;
+
+            for (int i = 0; i < characterList.Count; i++)
 			{
 				if(characterList[i].GetComponent<CharacterIDTagScript>().ID == tempDialogueList[pageNumber].chracterID)
 				{
@@ -110,7 +116,9 @@ public class NarrativeControlScript : MonoBehaviour
 				}
 			}
 
-			speechBubble.transform.position = Camera.main.WorldToScreenPoint(characterList[currentCharacterIndex].transform.GetChild(0).position);
+            picture.sprite = pictureList[tempDialogueList[pageNumber].chracterID - 1];
+
+			//speechBubble.transform.position = Camera.main.WorldToScreenPoint(characterList[currentCharacterIndex].transform.GetChild(0).position);
 			characterList[0].GetComponent<CharacterControlScript> ().RotateCamera(tempDialogueList[pageNumber].wantedAngle);
 			characterList[currentCharacterIndex].
 			GetComponent<CharacterAnimationScript> ().ChangeAnimation(tempDialogueList[pageNumber].characterAnimation);
@@ -119,6 +127,7 @@ public class NarrativeControlScript : MonoBehaviour
 		{
 			characterList[0].GetComponent<CharacterControlScript>().enabled = true;
             speechBubble.gameObject.SetActive(false);
+            picture.gameObject.SetActive(false);
             isCompleted_L = true;
 			if(toDeactivate != null)
 			{
