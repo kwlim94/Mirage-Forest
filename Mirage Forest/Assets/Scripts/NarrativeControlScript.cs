@@ -10,9 +10,7 @@ public class NarrativeControlScript : MonoBehaviour
 	int pageNumber;
 	int currentCharacterIndex;
 	public Image speechBubble;
-    public Image picture;
 	List<Dialogue> tempDialogueList;
-    public List<Sprite> pictureList;
 	float timeElasped;
 	GameObject toDeactivate;
     public bool isCompleted_L;
@@ -90,6 +88,11 @@ public class NarrativeControlScript : MonoBehaviour
 		this.toDeactivate = toDeactivate;
 	}
 
+//	public void LoadConversation (int IdNumber, GameObject toDeactivate, )
+//	{
+//
+//	}
+
 	public void NextPage ()
 	{
 		if (pageNumber < tempDialogueList.Count - 1)
@@ -97,10 +100,8 @@ public class NarrativeControlScript : MonoBehaviour
 			pageNumber ++;
 			speechBubble.transform.GetChild(0).GetComponent<Text>().text
 			= tempDialogueList[pageNumber].speech;
-            speechBubble.transform.GetChild(1).GetChild(0).GetComponent<Text>().text
-            = tempDialogueList[pageNumber].name;
 
-            for (int i = 0; i < characterList.Count; i++)
+			for(int i = 0; i < characterList.Count; i++)
 			{
 				if(characterList[i].GetComponent<CharacterIDTagScript>().ID == tempDialogueList[pageNumber].chracterID)
 				{
@@ -109,9 +110,8 @@ public class NarrativeControlScript : MonoBehaviour
 				}
 			}
 
-            picture.sprite = pictureList[tempDialogueList[pageNumber].chracterID];
-            //speechBubble.transform.position = Camera.main.WorldToScreenPoint(characterList[currentCharacterIndex].transform.GetChild(0).position);
-            characterList[0].GetComponent<CharacterControlScript> ().RotateCamera(tempDialogueList[pageNumber].wantedAngle);
+			speechBubble.transform.position = Camera.main.WorldToScreenPoint(characterList[currentCharacterIndex].transform.GetChild(0).position);
+			characterList[0].GetComponent<CharacterControlScript> ().RotateCamera(tempDialogueList[pageNumber].wantedAngle);
 			characterList[currentCharacterIndex].
 			GetComponent<CharacterAnimationScript> ().ChangeAnimation(tempDialogueList[pageNumber].characterAnimation);
 		}
