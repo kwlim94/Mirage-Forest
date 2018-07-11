@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class NarrativeControlScript : MonoBehaviour
 {
 	List <GameObject> characterList;
-	//int currentId;
 	int pageNumber;
 	int currentCharacterIndex;
 	public Image speechBubble;
@@ -38,6 +37,7 @@ public class NarrativeControlScript : MonoBehaviour
 		{
 			if(Input.GetMouseButtonDown(0))
 			{
+                timeElasped = 0;
 				NextPage ();
 			}
 				
@@ -90,11 +90,6 @@ public class NarrativeControlScript : MonoBehaviour
 		LoadConversation (IdNumber, ref isCompleted);
 		this.toDeactivate = toDeactivate;
 	}
-
-//	public void LoadConversation (int IdNumber, GameObject toDeactivate, )
-//	{
-//
-//	}
 
 	public void NextPage ()
 	{

@@ -8,19 +8,23 @@ public class InteractionScript : MonoBehaviour
 	public bool isInteractable;
 	public int idNumber;
     public bool isCompleted;
+    public bool isInteracted;
 
     void Start ()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 		isInteractable = false;
         isCompleted = false;
+        isInteracted = false;
         OtherStart();
 	}
 
 	void Update ()
 	{
-		if(isInteractable && Input.GetKeyDown(KeyControlScript.Instance.interactKey.keyboardKey))
+		if(isInteractable && Input.GetKeyDown(KeyControlScript.Instance.interactKey.keyboardKey) && !isInteracted)
 		{
+            isInteracted = true;
+            CharacterControlScript.Instance.interactImage.SetActive(false);
 			Interact ();
 		}
 

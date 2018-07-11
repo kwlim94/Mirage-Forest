@@ -1,0 +1,7 @@
+Bugs Fixed:
+
+10th July 2018
+- Camera Y axis
+- Multiple Interact
+- Interact Image does not dissapear
+- Narrative timer reset

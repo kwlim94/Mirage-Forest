@@ -33,7 +33,17 @@ public class CharacterControlScript : MonoBehaviour
 	private const float y_Angle_Max = 30.0f;
 	public float currentY;
 
-	void Start ()
+    public static CharacterControlScript Instance;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);
+        else
+            Instance = this;
+    }
+
+    void Start ()
 	{
 		walkingSpeed = 5.0f;
 		interactImage = GameObject.Find("Interact");
@@ -145,7 +155,7 @@ public class CharacterControlScript : MonoBehaviour
         													model.transform.localEulerAngles.z);
 
         //Vertical rotation
-        currentY = Camera.main.transform.eulerAngles.x + Input.GetAxis("Mouse Y") * cameraRotationSpeed * Time.deltaTime;
+        currentY = Camera.main.transform.eulerAngles.x - Input.GetAxis("Mouse Y") * cameraRotationSpeed * Time.deltaTime;
 
         if (currentY <= 360.0 + y_Angle_Min && currentY > y_Angle_Max + 50.0f)
         {
@@ -221,7 +231,7 @@ public class CharacterControlScript : MonoBehaviour
 	void OnTriggerEnter(Collider col)
 	{
 		print("Collision!");
-		if(col.transform.tag == "Interactable")
+		if(col.transform.tag == "Interactable" && !col.GetComponent<InteractionScript>().isInteracted )
 		{
 			col.GetComponent<InteractionScript>().isInteractable = true;
 			interactImage.SetActive(true);
