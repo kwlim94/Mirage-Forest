@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: brown
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -70,6 +70,9 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _ShadowSharpness: 100
+    - _ShadowThreshold: 0.5
+    - _Shininess: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -78,3 +81,5 @@ Material:
     m_Colors:
     - _Color: {r: 0.9411765, g: 0.6632144, b: 0.16608995, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadowColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}

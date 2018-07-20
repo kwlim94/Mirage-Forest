@@ -11,13 +11,12 @@ enum EventSequence
 public class ProlougeEventScript : MonoBehaviour {
 
     //EventSequence eventSequence;
-    bool isCompleted;
 
 	void Start ()
 	{
 		//eventSequence = EventSequence.LOOKING_AROUND;
 		InventoryScript.Instance.InventoryUpdate ();
-		NarrativeControlScript.Instance.LoadConversation (110031, ref isCompleted);
+		NarrativeControlScript.Instance.LoadConversation (110031);
 	}
 
 	void Update ()

@@ -6,15 +6,13 @@ public class InteractionScript : MonoBehaviour
 {
 	public GameObject player;
 	public bool isInteractable;
-	public int idNumber;
-    public bool isCompleted;
+    public int idNumber;
     public bool isInteracted;
 
     void Start ()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 		isInteractable = false;
-        isCompleted = false;
         isInteracted = false;
         OtherStart();
 	}

@@ -13,8 +13,8 @@ public class NarrativeControlScript : MonoBehaviour
 	List<Dialogue> tempDialogueList;
     public List<Sprite> pictureList;
 	float timeElasped;
-	GameObject toDeactivate;
-    public bool isCompleted_L;
+	GameObject toDeactivate; //! GameObjects to Reactivate after deactivated
+    public bool isCompleted_L; //! Turns to true when a set of dialougue is completed
 
 	public static NarrativeControlScript Instance {get; set;}
 
@@ -58,7 +58,7 @@ public class NarrativeControlScript : MonoBehaviour
 	}
 		
 
-	public void LoadConversation (int IdNumber, ref bool isCompleted)
+	public void LoadConversation (int IdNumber)
 	{
 		toDeactivate = null;
         speechBubble.gameObject.SetActive(true);
@@ -85,9 +85,9 @@ public class NarrativeControlScript : MonoBehaviour
 		NextPage ();
 	}
 
-	public void LoadConversation (int IdNumber, GameObject toDeactivate, ref bool isCompleted)
+	public void LoadConversation (int IdNumber, GameObject toDeactivate)
 	{
-		LoadConversation (IdNumber, ref isCompleted);
+		LoadConversation (IdNumber);
 		this.toDeactivate = toDeactivate;
 	}
 

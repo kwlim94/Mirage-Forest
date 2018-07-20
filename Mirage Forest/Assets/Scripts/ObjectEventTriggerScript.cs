@@ -35,22 +35,19 @@ public class ObjectEventTriggerScript: InteractionScript
             thingsToActivate[0].SetActive(true);
             if (isActivatedThingsToBeDeactivated)
             {
-                NarrativeControlScript.Instance.LoadConversation(idNumber, thingsToActivate[0], ref isCompleted);
+                NarrativeControlScript.Instance.LoadConversation(idNumber, thingsToActivate[0]);
             }
             else
             {
-                NarrativeControlScript.Instance.LoadConversation(idNumber, ref isCompleted);
+                NarrativeControlScript.Instance.LoadConversation(idNumber);
             }
         }
         else
         {
-            NarrativeControlScript.Instance.LoadConversation(idNumber, ref isCompleted);
+            NarrativeControlScript.Instance.LoadConversation(idNumber);
         }
 
         isInteract = true;
-        //await LoadStory();
-        //task.Wait();
-
 
     }
 
@@ -83,27 +80,5 @@ public class ObjectEventTriggerScript: InteractionScript
             }
         }
     }
-
-    /*
-    async Task LoadStory()
-    {
-        if (thingsToActivate.Count > 0)
-        {
-            thingsToActivate[0].SetActive(true);
-            if (isActivatedThingsToBeDeactivated)
-            {
-                NarrativeControlScript.Instance.LoadConversation(idNumber, thingsToActivate[0]);
-            }
-            else
-            {
-               NarrativeControlScript.Instance.LoadConversation(idNumber);
-            }
-        }
-        else
-        {
-           NarrativeControlScript.Instance.LoadConversation(idNumber);
-        }
-    }
-    */
 
 }
