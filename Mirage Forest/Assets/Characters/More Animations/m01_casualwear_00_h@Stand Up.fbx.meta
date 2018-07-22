@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: c6a18691604a9894ab1c779e53a0c81d
-timeCreated: 1519712571
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -263,6 +261,7 @@ ModelImporter:
     400254: u_lip_center
     7400000: Stand Up
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -286,6 +285,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
