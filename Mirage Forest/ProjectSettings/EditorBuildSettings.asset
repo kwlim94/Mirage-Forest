@@ -20,3 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Maps/Pause Menu.unity
     guid: 56e2d9eee7476c74b8bf84c9ebaf46da
+  - enabled: 1
+    path: Assets/Maps/Credits.unity
+    guid: d49587cbf45bc0745bd05f27f57b7756
+  m_configObjects: {}

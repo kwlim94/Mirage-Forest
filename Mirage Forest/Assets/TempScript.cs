@@ -38,6 +38,10 @@ public class TempScript : MonoBehaviour
     {
 
     }
+    public void Credits()
+    {
+        SceneManagerScript.Instance.LoadScene(104);
+    }
 
 
  
