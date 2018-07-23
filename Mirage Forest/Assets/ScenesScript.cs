@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TempScript : MonoBehaviour
+public class ScenesScript : MonoBehaviour
 {
 	void Start () 
 	{
@@ -43,8 +43,14 @@ public class TempScript : MonoBehaviour
         SceneManagerScript.Instance.LoadScene(104);
     }
 
+    public void OnPause()
+    {
+       // if()
+    }
+    
 
- 
+
+
 
 
 
