@@ -36,6 +36,8 @@ public class GlowingBlockScript : MonoBehaviour
     GlowSwitch glowSwitch;
     //HT delta time update per frame
     float time;
+    bool isFall;
+    Vector3 defaultLocation;
    
     //! public variables
 
@@ -49,6 +51,8 @@ public class GlowingBlockScript : MonoBehaviour
         GlowingLight = gameObject.transform.GetChild(0).GetComponent<Light>();
         glowSwitch = GlowSwitch.OFF;
         time = 0.0f;
+        defaultLocation = transform.position;
+        isFall = false;
     }
 
     void Update ()
@@ -91,7 +95,18 @@ public class GlowingBlockScript : MonoBehaviour
 
     void PitfallFunction ()
     {
-        
+        if(isFall)
+        {
+            if(time < 0.5f)
+            {
+                transform.position = new Vector3(defaultLocation.x, defaultLocation.y - 1.0f * Time.deltaTime, defaultLocation.z);
+            }
+            else
+            {
+                transform.position = defaultLocation;
+                isFall = false;
+            }
+        }
     }
 
     void TimedGlowFunction ()
@@ -120,6 +135,17 @@ public class GlowingBlockScript : MonoBehaviour
         if(time >= timeInterval * 2.0f)
         {
             time = 0.0f;
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player" && blockType == BlockType.PITFALL)
+        {
+            print("fall" + blockType);
+            isFall = true;
+            time = 1.0f;
+            GlowingBlocksManagerScript.Instance.Respawn(1.0f);
         }
     }
 }

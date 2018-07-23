@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlowingBlocksManagerScript : MonoBehaviour {
+public class GlowingBlocksManagerScript : RespawnManagerScript
+{
+    public static GlowingBlocksManagerScript Instance { get; set; }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Awake ()
+    {
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);
+        else
+            Instance = this;
+    }
+
+    
 }

@@ -9,7 +9,7 @@ public class CharacterControlScript : MonoBehaviour
 	public GameObject interactImage;
 
 	//HT Animator and RigidBody for the character model
-	Animator anim;
+	public Animator anim;
 	Rigidbody rb;
 	CapsuleCollider characterCollision;
 
