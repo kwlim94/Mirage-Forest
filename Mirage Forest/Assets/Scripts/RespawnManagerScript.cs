@@ -14,11 +14,13 @@ public class RespawnManagerScript : MonoBehaviour
 
     void Start()
     {
+        OtherStart();
         isRespawn = false;  
     }
 
     void Update()
     {
+        OtherUpdate();
         if(isRespawn)
         {
             if(time < fadeTime)
@@ -28,16 +30,19 @@ public class RespawnManagerScript : MonoBehaviour
             else if(time > fadeTime && time < fadeTime * 2)
             {
                 blackScreen.color = new Vector4(0.0f, 0.0f, 0.0f, blackScreen.color.a - fadeInterval * Time.deltaTime);
+                CharacterControlScript.Instance.transform.position = respawmPoint.position;
             }
             else if(time > fadeTime * 2)
             {
                 CharacterControlScript.Instance.enabled = true;
-                CharacterControlScript.Instance.transform.position = respawmPoint.position;
                 isRespawn = false;
             }
             time += Time.deltaTime;
         }
     }
+
+    public virtual void OtherStart() { }
+    public virtual void OtherUpdate() { }
 
     public void Respawn(float _fadeTime)
     {
