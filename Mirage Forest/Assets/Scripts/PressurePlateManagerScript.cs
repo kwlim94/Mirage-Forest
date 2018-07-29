@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[System.Serializable]
-public class Sequence
-{
-    public List<GameObject> sequenceList;
-}
-
 public class PressurePlateManagerScript : RespawnManagerScript
 {
 
@@ -22,6 +16,9 @@ public class PressurePlateManagerScript : RespawnManagerScript
             Instance = this;
     }
 
+
+    //! to check which elevation it is now
+    int floorCount;
     //! used for increament of the lighting reveal
     int element;
     //! used for keeping track of the element that the player already pressed
@@ -33,53 +30,101 @@ public class PressurePlateManagerScript : RespawnManagerScript
     Vector3 initialLocation;
 
     public float incrementHeight;
-    public List<Sequence> listOfSeqenceList;
+    public List<GameObject> pressurePlateList;
+    public List<GameObject> currentSeqenceList;
+    //! How many pattern to randomize for the particular elevation
+    public List<int> patternCountList;
 
     public override void OtherStart ()
     {
-        element = 0;
+        floorCount = 0;
         sequenceTime = 0.0f;
+        currentElement = 0;
         interval = 1.0f;
         isPlaySequence = true;
         initialLocation = transform.position;
+        RandomizeSequence();
     }
 
     public override void OtherUpdate()
     {
-        PlaySequence();
-        MoveHigher();
+       
+        if(isMoveHigher)
+            MoveHigher();
+        else
+            PlaySequence();
     }
 
     public void SequenceCheck(string name)
     {
-        if (listOfSeqenceList[0].sequenceList[currentElement].name == name)
+        //HT if it matches the one in the sequence
+        if (currentSeqenceList[currentElement].name == name)
         {
-            if(currentElement < listOfSeqenceList[0].sequenceList.Count - 1)
+            //HT increase it by one if it is not the last one
+            if(currentElement < currentSeqenceList.Count - 1)
             {
                 currentElement++;
                 print("Correct");
             }
+            //HT if it is the last one in the list then move higher
             else
             {
+                floorCount++;
+                RandomizeSequence();
+
                 sequenceTime = 0.0f;
                 isMoveHigher = true;
                 currentElement = 0;
-                element = 0;
                 print("moving higher");
             }
         }
-        else if(listOfSeqenceList[0].sequenceList[currentElement - 1 ].name == name)
-        {
-            //! do nothing
-        }
+        //HT if it doesnt match the one in the sequence
         else
         {
-            Respawn(1.0f);
-            StartCoroutine(WaitForSomeTime(2.1f));
-            isPlaySequence = true;
-            currentElement = 0;
-            element = 0;
-            print("respawn");
+            //! if the current element is zero no need to check the previous one
+            if(currentElement == 0)
+            {
+                Respawn(1.0f);
+                RandomizeSequence();
+                StartCoroutine(WaitForSomeTime(2.1f));
+
+                isPlaySequence = true;
+                currentElement = 0;
+                print("respawn");
+            }
+            //! else, check if the one pressed it's the same one as before, to avoid complications of getting a respawn by pressing the same one twice
+            else if (currentSeqenceList[currentElement - 1].name != name)
+            {
+                Respawn(1.0f);
+                RandomizeSequence();
+                StartCoroutine(WaitForSomeTime(2.1f));
+
+                isPlaySequence = true;
+                currentElement = 0;
+                print("respawn");
+            }
+        }
+    }
+
+    void RandomizeSequence()
+    {
+        if(floorCount < patternCountList.Count - 1)
+        {
+            int prevRandomPressurePlate = -1;
+
+            for(int i = 0; i < patternCountList[floorCount] - 1; i++)
+            {
+                int randomPressurePlate = -1;
+
+                do
+                {
+                    randomPressurePlate = Random.Range(0, pressurePlateList.Count);
+                    print("Randomizing Sequence for element " + i);
+                }
+                while (randomPressurePlate == prevRandomPressurePlate);
+                currentSeqenceList[i] = pressurePlateList[randomPressurePlate];
+                prevRandomPressurePlate = randomPressurePlate;
+            }
         }
     }
 
@@ -92,16 +137,19 @@ public class PressurePlateManagerScript : RespawnManagerScript
 
         if(isPlaySequence)
         {
+
+            element = 0;
+
             CharacterControlScript.Instance.enabled = false;
             if (sequenceTime < element + interval)
             {
-                listOfSeqenceList[0].sequenceList[element].transform.GetChild(0).GetComponent<Light>().enabled = true;
+                currentSeqenceList[element].transform.GetChild(0).GetComponent<Light>().enabled = true;
             }
             else
             {
-                listOfSeqenceList[0].sequenceList[element].transform.GetChild(0).GetComponent<Light>().enabled = false;
+                currentSeqenceList[element].transform.GetChild(0).GetComponent<Light>().enabled = false;
 
-                if (element < listOfSeqenceList[0].sequenceList.Count - 1)
+                if (element < currentSeqenceList.Count - 1)
                     element++;
                 else
                 {
@@ -117,23 +165,29 @@ public class PressurePlateManagerScript : RespawnManagerScript
 
     void MoveHigher ()
     {
-        if (isMoveHigher)
+        if (sequenceTime < 1.0f)
         {
-            if (sequenceTime < 1.0f)
+            CharacterControlScript.Instance.enabled = false;
+            CharacterControlScript.Instance.anim.SetBool("Walk", false);
+            CharacterControlScript.Instance.transform.SetParent(this.transform);
+            transform.position = new Vector3(initialLocation.x, transform.position.y + incrementHeight * Time.deltaTime, initialLocation.z);
+            sequenceTime += Time.deltaTime;
+        }
+        else
+        {
+            CharacterControlScript.Instance.enabled = true;
+            //HT Unity scripting doesn't support remving one child, so will need to remove all children first
+            transform.DetachChildren();
+
+            //HT Then reparent all the pressure plates back
+            for(int i = 0; i < pressurePlateList.Count - 1; i++)
             {
-                CharacterControlScript.Instance.enabled = false;
-                CharacterControlScript.Instance.anim.SetBool("Walk", false);
-                CharacterControlScript.Instance.transform.SetParent(this.transform);
-                transform.position = new Vector3(initialLocation.x, transform.position.y + incrementHeight * Time.deltaTime, initialLocation.z);
-                sequenceTime += Time.deltaTime;
-            }
-            else
-            {
-                CharacterControlScript.Instance.enabled = true;
-                transform.DetachChildren();
-                isMoveHigher = false;
+                pressurePlateList[i].transform.SetParent(this.transform);
             }
 
+            sequenceTime = 0.0f;
+            isMoveHigher = false;
+            isPlaySequence = true;
         }
     }
 

@@ -11,9 +11,7 @@ public class PresurePlateScript : MonoBehaviour
 
     void Start()
     {
-        initialLocation = transform.position;
-        pressedLocation = new Vector3(initialLocation.x, initialLocation.y - 0.09f, initialLocation.z);
-        isEntered = false;
+        InitialSetup();
     }
 
     void Update()
@@ -21,9 +19,16 @@ public class PresurePlateScript : MonoBehaviour
         time += Time.deltaTime;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void InitialSetup()
     {
-        if(collision.gameObject.tag == "Player" && !isEntered)
+        initialLocation = transform.position;
+        pressedLocation = new Vector3(initialLocation.x, initialLocation.y - 0.09f, initialLocation.z);
+        isEntered = false;
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.gameObject.tag == "Player" && !isEntered)
         {
             PressurePlateManagerScript.Instance.SequenceCheck(transform.name);
             transform.position = pressedLocation;
@@ -32,9 +37,9 @@ public class PresurePlateScript : MonoBehaviour
         }
     }
 
-    void OnCollisionExit(Collision collision)
+    void OnTriggerExit(Collider col)
     {
-        if (collision.gameObject.tag == "Player" && time > 0.1f)
+        if (col.gameObject.tag == "Player" && time > 0.1f)
         {
             transform.position = initialLocation;
             isEntered = false;
