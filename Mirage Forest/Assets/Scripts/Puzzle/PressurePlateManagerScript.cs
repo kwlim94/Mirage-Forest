@@ -31,7 +31,7 @@ public class PressurePlateManagerScript : RespawnManagerScript
 
     public float incrementHeight;
     public List<GameObject> pressurePlateList;
-    public List<GameObject> currentSeqenceList;
+    List<GameObject> currentSeqenceList;
     //! How many pattern to randomize for the particular elevation
     public List<int> patternCountList;
 
@@ -39,8 +39,10 @@ public class PressurePlateManagerScript : RespawnManagerScript
     {
         floorCount = 0;
         sequenceTime = 0.0f;
+        element = 0;
         currentElement = 0;
         interval = 1.0f;
+        isMoveHigher = false;
         isPlaySequence = true;
         initialLocation = transform.position;
         RandomizeSequence();
@@ -74,6 +76,7 @@ public class PressurePlateManagerScript : RespawnManagerScript
 
                 sequenceTime = 0.0f;
                 isMoveHigher = true;
+                element = 0;
                 currentElement = 0;
                 print("moving higher");
             }
@@ -84,22 +87,24 @@ public class PressurePlateManagerScript : RespawnManagerScript
             //! if the current element is zero no need to check the previous one
             if(currentElement == 0)
             {
-                Respawn(1.0f);
                 RandomizeSequence();
                 StartCoroutine(WaitForSomeTime(2.1f));
-
+                Respawn(1.0f);
+               
                 isPlaySequence = true;
+                element = 0;
                 currentElement = 0;
                 print("respawn");
             }
             //! else, check if the one pressed it's the same one as before, to avoid complications of getting a respawn by pressing the same one twice
             else if (currentSeqenceList[currentElement - 1].name != name)
             {
-                Respawn(1.0f);
                 RandomizeSequence();
                 StartCoroutine(WaitForSomeTime(2.1f));
+                Respawn(1.0f);
 
                 isPlaySequence = true;
+                element = 0;
                 currentElement = 0;
                 print("respawn");
             }
@@ -108,6 +113,7 @@ public class PressurePlateManagerScript : RespawnManagerScript
 
     void RandomizeSequence()
     {
+        currentSeqenceList = new List<GameObject>();
         if(floorCount < patternCountList.Count - 1)
         {
             int prevRandomPressurePlate = -1;
@@ -122,7 +128,7 @@ public class PressurePlateManagerScript : RespawnManagerScript
                     print("Randomizing Sequence for element " + i);
                 }
                 while (randomPressurePlate == prevRandomPressurePlate);
-                currentSeqenceList[i] = pressurePlateList[randomPressurePlate];
+                currentSeqenceList.Add(pressurePlateList[randomPressurePlate]);
                 prevRandomPressurePlate = randomPressurePlate;
             }
         }
@@ -137,8 +143,6 @@ public class PressurePlateManagerScript : RespawnManagerScript
 
         if(isPlaySequence)
         {
-
-            element = 0;
 
             CharacterControlScript.Instance.enabled = false;
             if (sequenceTime < element + interval)
