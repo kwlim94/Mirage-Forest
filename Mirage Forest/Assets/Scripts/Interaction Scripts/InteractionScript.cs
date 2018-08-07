@@ -19,6 +19,7 @@ public class InteractionScript : MonoBehaviour
 
 	void Update ()
 	{
+        //HT Check if player is in range and the interact key is down
 		if(isInteractable && Input.GetKeyDown(KeyControlScript.Instance.interactKey.keyboardKey) && !isInteracted)
 		{
             isInteracted = true;
@@ -29,6 +30,7 @@ public class InteractionScript : MonoBehaviour
         OtherUpdate();
 	}
 
+    //HT virtual functions to be overrided on
 	public virtual void OtherStart(){}
     public virtual void OtherUpdate(){}
 

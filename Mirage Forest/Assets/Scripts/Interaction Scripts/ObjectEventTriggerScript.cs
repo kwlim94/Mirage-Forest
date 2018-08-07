@@ -11,7 +11,7 @@ public class ObjectEventTriggerScript: InteractionScript
 	public List<bool> nextIsActivatedThingsToBeDeactivated;
 	public int nextScene; //! if there is a scene change right after this
 	public bool isActivatedThingsToBeDeactivated;
-    bool isInteract;
+    bool isInteract; //! This is to make sure the object is not interacted more than once
 
 	public override void OtherStart()
 	{
@@ -20,9 +20,7 @@ public class ObjectEventTriggerScript: InteractionScript
 
     public override void Interact ()
 	{
-
         NarrativeControlScript.Instance.isCompleted_L = false;
-
         if (thingsToDeactivate.Count > 0)
 		{
 			thingsToDeactivate[0].SetActive(false);
@@ -46,9 +44,7 @@ public class ObjectEventTriggerScript: InteractionScript
         {
             NarrativeControlScript.Instance.LoadConversation(idNumber);
         }
-
         isInteract = true;
-
     }
 
     public override void OtherUpdate()
