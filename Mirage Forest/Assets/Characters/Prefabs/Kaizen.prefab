@@ -959,6 +959,7 @@ GameObject:
   - component: {fileID: 114473332191230750}
   - component: {fileID: 114381204785883452}
   - component: {fileID: 114789694930396354}
+  - component: {fileID: 114064284006644598}
   m_Layer: 0
   m_Name: Kaizen
   m_TagString: Player
@@ -3958,6 +3959,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114064284006644598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1445412659683212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e578f6f9550e4241bba90af771afdb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryList: 
+  background: {fileID: 0}
 --- !u!114 &114381204785883452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3982,6 +3997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactImage: {fileID: 0}
+  anim: {fileID: 0}
   model: {fileID: 4139753173764834}
   walkingSpeed: 5
   cameraRotationSpeed: 50
@@ -4043,6 +4059,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 489874979b1c34b4c866e3a1ea7e12e5, type: 2}
   - {fileID: 2100000, guid: 5e83de8389f46984fbfb228314a90a71, type: 2}

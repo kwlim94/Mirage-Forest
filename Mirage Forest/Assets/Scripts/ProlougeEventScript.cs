@@ -16,7 +16,7 @@ public class ProlougeEventScript : MonoBehaviour {
 	{
 		//eventSequence = EventSequence.LOOKING_AROUND;
 		InventoryScript.Instance.InventoryUpdate ();
-		NarrativeControlScript.Instance.LoadConversation (110031);
+		NarrativeControlScript.Instance.LoadConversation (100111);
 	}
 
 	void Update ()

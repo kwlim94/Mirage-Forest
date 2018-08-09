@@ -345,7 +345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4421690067993136}
   - component: {fileID: 114187399100075786}
-  - component: {fileID: 114392688735185742}
+  - component: {fileID: 114256482014210622}
   m_Layer: 0
   m_Name: Narrative Controller
   m_TagString: Untagged
@@ -588,7 +588,7 @@ MonoBehaviour:
       wantedAngle: 0
       characterAnimation: 0
   - name: Starting Pathway Events - Kaizen getting up from the floor
-    IdNumber: 0
+    IdNumber: 100111
     Description: Kaizen getting up from the floor
     DialogueList:
     - name: Kaizen
@@ -596,8 +596,8 @@ MonoBehaviour:
       speech: " \u201CAck!! My head hurts! Why can\u2019t I remember anything? It
         all feels blank\u201D"
       duration: 4
-      wantedAngle: 0
-      characterAnimation: 0
+      wantedAngle: 180
+      characterAnimation: 3
     - name: Kaizen
       chracterID: 1
       speech: "\u201CWhere am I? I was in my room just a few moments ago\u201D "
@@ -625,7 +625,7 @@ MonoBehaviour:
       wantedAngle: 0
       characterAnimation: 0
   - name: Starting Pathway Events - When Kaizen exits the cave area
-    IdNumber: 0
+    IdNumber: 100121
     Description: When Kaizen exits the cave area
     DialogueList:
     - name: Kaizen
@@ -733,7 +733,7 @@ MonoBehaviour:
       wantedAngle: 0
       characterAnimation: 0
   - name: Puzzle 1 - Kaizen walks to an Area before the 1st pathway with the spikes
-    IdNumber: 0
+    IdNumber: 100131
     Description: Kaizen walks to an Area before the 1st pathway with the spikes
     DialogueList:
     - name: Kaizen
@@ -813,7 +813,7 @@ MonoBehaviour:
       wantedAngle: 0
       characterAnimation: 0
   - name: Puzzle 1 - Kaizen finishes traversing the area of the spikes and other obstacles
-    IdNumber: 0
+    IdNumber: 100141
     Description: Kaizen finishes traversing the area of the spikes and other obstacles
     DialogueList:
     - name: Kaizen
@@ -824,7 +824,7 @@ MonoBehaviour:
       wantedAngle: 0
       characterAnimation: 0
   - name: Puzzle 1 - Kaizen sits down on the ground, holding the book (maybe)
-    IdNumber: 0
+    IdNumber: 100151
     Description: Kaizen sits down on the ground, holding the book (maybe)
     DialogueList:
     - name: Kaizen
@@ -833,7 +833,7 @@ MonoBehaviour:
         time off my time worrying and read a little\u201D"
       duration: 6
       wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 5
     - name: Kaizen
       chracterID: 1
       speech: "\u2018It takes place in a fantasy realm, filled with spirits that grant
@@ -841,13 +841,13 @@ MonoBehaviour:
         while others provide magic that is destructive and evil\u2019"
       duration: 15
       wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 5
     - name: Kaizen
       chracterID: 1
       speech: "\u2018The story starts off with this young female mage off to find\u2026.\u201D"
       duration: 5
       wantedAngle: 0
-      characterAnimation: 0
+      characterAnimation: 5
     - name: Kaizen
       chracterID: 1
       speech: "\u201CWait a minute, why is there no more to the book!? I know I was
@@ -1701,6 +1701,16 @@ MonoBehaviour:
     Description: Move forward a while more and to the area which shows how Kaizen
       fell into the Dream World
     DialogueList: []
+  - name: Reach glowing tiles
+    IdNumber: 100161
+    Description: 
+    DialogueList:
+    - name: Erina(voice in his head)
+      chracterID: 2
+      speech: Walk on the glowing tiles, and you will be fine.
+      duration: 4
+      wantedAngle: 0
+      characterAnimation: 0
 --- !u!114 &114198287318314870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1782,6 +1792,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114256482014210622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1790805481496812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71a9bb49cd841f49b8fc9a5094cdba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speechBubble: {fileID: 114414963950090732}
+  picture: {fileID: 114721126849208384}
+  pictureList:
+  - {fileID: 21300000, guid: 0360fe0cd058c044d9e5f9de960e62ad, type: 3}
+  - {fileID: 21300000, guid: d297386ce762e8648ad0f6c286f75548, type: 3}
+  - {fileID: 21300000, guid: 9e22a93175f79ea4b852a5fd309b11da, type: 3}
+  - {fileID: 21300000, guid: 060a74582eb288849add69043e825240, type: 3}
+  - {fileID: 21300000, guid: 2f8948d04c653ea48b131b0427f799d7, type: 3}
+  isCompleted_L: 0
 --- !u!114 &114262866105852500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1879,26 +1909,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114392688735185742
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1790805481496812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07f31c2aaddcabd479dbf7a524991e06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speechBubble: {fileID: 114414963950090732}
-  picture: {fileID: 114721126849208384}
-  pictureList:
-  - {fileID: 21300000, guid: 0360fe0cd058c044d9e5f9de960e62ad, type: 3}
-  - {fileID: 21300000, guid: d297386ce762e8648ad0f6c286f75548, type: 3}
-  - {fileID: 21300000, guid: 9e22a93175f79ea4b852a5fd309b11da, type: 3}
-  - {fileID: 21300000, guid: 060a74582eb288849add69043e825240, type: 3}
-  - {fileID: 21300000, guid: 2f8948d04c653ea48b131b0427f799d7, type: 3}
-  isCompleted_L: 0
 --- !u!114 &114414963950090732
 MonoBehaviour:
   m_ObjectHideFlags: 1
