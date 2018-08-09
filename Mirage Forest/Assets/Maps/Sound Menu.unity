@@ -492,9 +492,8 @@ GameObject:
   - component: {fileID: 791309540}
   - component: {fileID: 791309539}
   - component: {fileID: 791309538}
-  - component: {fileID: 791309542}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Sound menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -582,17 +581,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &791309542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 791309537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4da3abe751952d042af0dcc548638bea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &826685787
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +657,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 791309542}
+      - m_Target: {fileID: 1537839737}
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -1180,6 +1168,22 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1537839734}
   m_Script: {fileID: 11500000, guid: 02315ec3ed4695c49abe83cd4fbe0b69, type: 3}
+--- !u!1 &1537839736 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1088681150568920, guid: 6a02740acb14bfc479672ab69f9b7f12,
+    type: 2}
+  m_PrefabInternal: {fileID: 1537839734}
+--- !u!114 &1537839737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537839736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce80cf33845c81d42980da0885c6b84d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1662337619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1625,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 791309542}
+      - m_Target: {fileID: 1537839737}
         m_MethodName: Setting
         m_Mode: 1
         m_Arguments:

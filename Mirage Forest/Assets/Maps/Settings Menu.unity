@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 64594563}
   - component: {fileID: 64594567}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Settings menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -602,7 +602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &314725160
 RectTransform:
   m_ObjectHideFlags: 0
@@ -784,7 +784,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1490727362}
-        m_MethodName: Setting
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1124,7 +1124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1390870979
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1285,7 +1285,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1490727361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4da3abe751952d042af0dcc548638bea, type: 3}
+  m_Script: {fileID: 11500000, guid: ce80cf33845c81d42980da0885c6b84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1774854029
@@ -1457,7 +1457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1847872131
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1579,7 +1579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1928599153
 RectTransform:
   m_ObjectHideFlags: 0
