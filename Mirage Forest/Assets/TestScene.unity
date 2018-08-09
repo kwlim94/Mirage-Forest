@@ -1027,6 +1027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interval: 3
   startTime: 2
+  spikeManagerScript: {fileID: 0}
 --- !u!65 &351652380
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3776,6 +3777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interval: 3
   startTime: 0
+  spikeManagerScript: {fileID: 0}
 --- !u!65 &1299038733
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3875,6 +3877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interval: 3
   startTime: 0
+  spikeManagerScript: {fileID: 0}
 --- !u!65 &1308157561
 BoxCollider:
   m_ObjectHideFlags: 0

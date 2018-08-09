@@ -15,7 +15,7 @@ public class SpikeScript : MonoBehaviour
     {
         intervalCount = startTime;
         initialLocation = transform.position;
-        risingInterval = 1.0f / 0.5f;
+        risingInterval = 5.0f / 0.5f;
     }
 
     void Update()

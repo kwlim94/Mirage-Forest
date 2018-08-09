@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpikeManagerScript : RespawnManagerScript
 {
-    List<SpikeScript> spikeList;
+    public List<SpikeScript> spikeList;
 
     void Start()
     {
@@ -12,9 +12,14 @@ public class SpikeManagerScript : RespawnManagerScript
         for(int i = 0; i < transform.childCount; i++)
         {
             spikeList.Add(transform.GetChild(i).GetComponent<SpikeScript>());
-            spikeList[i].spikeManagerScript = this;
         }
 
+        spikeList.Remove(spikeList[transform.childCount - 1]);
+
+        for (int j = 0; j < transform.childCount; j++)
+        {
+            spikeList[j].spikeManagerScript = gameObject.GetComponent<SpikeManagerScript>();
+        }
     }
 
 }
