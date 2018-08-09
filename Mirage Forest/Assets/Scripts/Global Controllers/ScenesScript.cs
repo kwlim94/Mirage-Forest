@@ -38,6 +38,7 @@ public class ScenesScript : MonoBehaviour
     {
 
     }
+
     public void Credits()
     {
         SceneManagerScript.Instance.LoadScene(104);
