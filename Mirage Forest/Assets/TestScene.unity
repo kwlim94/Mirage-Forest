@@ -4081,6 +4081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawmPoint: {fileID: 1975779138}
   blackScreen: {fileID: 1947687234}
+  spikeList: []
 --- !u!4 &1383636024
 Transform:
   m_ObjectHideFlags: 0
@@ -4913,7 +4914,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5191d43044979d349b4d2ffcbd6decf3, type: 2}
+  - {fileID: 2100000, guid: 828b034ede104ef4b90c04f81861f23d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

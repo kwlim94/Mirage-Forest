@@ -53,8 +53,10 @@ public class PressurePlateManagerScript : RespawnManagerScript
        
         if(isMoveHigher)
             MoveHigher();
-        else
+        else if(floorCount < patternCountList.Count - 1)
             PlaySequence();
+        //else
+
     }
 
     public void SequenceCheck(string name)
@@ -192,7 +194,7 @@ public class PressurePlateManagerScript : RespawnManagerScript
             transform.DetachChildren();
 
             //HT Then reparent all the pressure plates back
-            for(int i = 0; i < pressurePlateList.Count - 1; i++)
+            for(int i = 0; i < pressurePlateList.Count; i++)
             {
                 pressurePlateList[i].transform.SetParent(this.transform);
             }
