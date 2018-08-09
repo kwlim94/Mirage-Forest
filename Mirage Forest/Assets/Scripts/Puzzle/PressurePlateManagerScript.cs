@@ -78,6 +78,7 @@ public class PressurePlateManagerScript : RespawnManagerScript
                 isMoveHigher = true;
                 element = 0;
                 currentElement = 0;
+               
                 print("moving higher");
             }
         }
@@ -171,10 +172,17 @@ public class PressurePlateManagerScript : RespawnManagerScript
     {
         if (sequenceTime < 1.0f)
         {
+            CharacterControlScript.Instance.transform.position = respawmPoint.position;
             CharacterControlScript.Instance.enabled = false;
             CharacterControlScript.Instance.anim.SetBool("Walk", false);
             CharacterControlScript.Instance.transform.SetParent(this.transform);
             transform.position = new Vector3(initialLocation.x, transform.position.y + incrementHeight * Time.deltaTime, initialLocation.z);
+            for (int i = 0; i < pressurePlateList.Count; i++)
+            {
+                Vector3 tempInitialPos = pressurePlateList[i].GetComponent<PresurePlateScript>().initialLocation;
+                pressurePlateList[i].GetComponent<PresurePlateScript>().initialLocation
+                    = new Vector3(tempInitialPos.x, tempInitialPos.y + incrementHeight * Time.deltaTime, tempInitialPos.z);
+            }
             sequenceTime += Time.deltaTime;
         }
         else
@@ -187,6 +195,13 @@ public class PressurePlateManagerScript : RespawnManagerScript
             for(int i = 0; i < pressurePlateList.Count - 1; i++)
             {
                 pressurePlateList[i].transform.SetParent(this.transform);
+            }
+
+            for (int i = 0; i < pressurePlateList.Count; i++)
+            {
+                pressurePlateList[i].transform.position = pressurePlateList[i].GetComponent<PresurePlateScript>().initialLocation;
+                pressurePlateList[i].GetComponent<PresurePlateScript>().InitialSetup();
+                print("Pressure plate" + i);
             }
 
             sequenceTime = 0.0f;

@@ -9,6 +9,7 @@ public class SpikeScript : MonoBehaviour
     float intervalCount;
     float risingInterval;
     Vector3 initialLocation;
+    public SpikeManagerScript spikeManagerScript;
 
     void Start()
     {
@@ -40,7 +41,7 @@ public class SpikeScript : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             print("spike");
-            SpikeManagerScript.Instance.Respawn(1.0f);
+            spikeManagerScript.Respawn(1.0f);
         }
     }
 }

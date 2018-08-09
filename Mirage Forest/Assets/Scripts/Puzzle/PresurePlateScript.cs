@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PresurePlateScript : MonoBehaviour
 {
-    Vector3 initialLocation;
+    public Vector3 initialLocation;
     Vector3 pressedLocation;
     bool isEntered;
     float time;
@@ -19,7 +19,7 @@ public class PresurePlateScript : MonoBehaviour
         time += Time.deltaTime;
     }
 
-    void InitialSetup()
+    public void InitialSetup()
     {
         initialLocation = transform.position;
         pressedLocation = new Vector3(initialLocation.x, initialLocation.y - 0.09f, initialLocation.z);

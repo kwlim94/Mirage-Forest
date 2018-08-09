@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23927277, g: 0.21598431, b: 0.16109645, a: 1}
+  m_IndirectSpecularColor: {r: 0.23927206, g: 0.21598408, b: 0.1610964, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -911,6 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f50a879b1e24248a1bffad60435750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialLocation: {x: 0, y: 0, z: 0}
 --- !u!4 &321138883 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4733613401434514, guid: dd03433c1d981a247a4f8b055cf33313,
@@ -1399,6 +1400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f50a879b1e24248a1bffad60435750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialLocation: {x: 0, y: 0, z: 0}
 --- !u!65 &418292652
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2339,6 +2341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f50a879b1e24248a1bffad60435750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialLocation: {x: 0, y: 0, z: 0}
 --- !u!4 &751034239 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4733613401434514, guid: dd03433c1d981a247a4f8b055cf33313,
