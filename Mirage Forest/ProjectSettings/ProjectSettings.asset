@@ -622,7 +622,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: 692a990d-1250-4053-bd4d-02203b19f235
   projectName: Mirage Forest
   organizationId: kizuna-games
